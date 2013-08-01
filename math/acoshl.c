@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "math.h"
+#include <math.h>
 
 long double acoshl( long double x )
 {

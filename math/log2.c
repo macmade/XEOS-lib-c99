@@ -61,9 +61,9 @@
 
 /* $Id$ */
 
-#include "math.h"
-#include "float.h"
-#include "errno.h"
+#include <math.h>
+#include <float.h>
+#include <errno.h>
 
 double log2( double x )
 {

@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdio.h"
+#include <stdio.h>
 
 int fprintf( FILE * restrict stream, const char * restrict format, ... )
 {

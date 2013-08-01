@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "math.h"
+#include <math.h>
 
 long long int llrintl( long double x )
 {

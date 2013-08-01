@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdio.h"
+#include <stdio.h>
 
 int fsetpos( FILE * stream, const fpos_t * pos )
 {

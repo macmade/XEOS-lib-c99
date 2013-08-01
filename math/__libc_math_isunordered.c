@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "math.h"
+#include <math.h>
 
 int __libc_math_isunordered( long double x, long double y );
 int __libc_math_isunordered( long double x, long double y )

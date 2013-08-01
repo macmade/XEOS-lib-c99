@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "ctype.h"
+#include <ctype.h>
 
 int iscntrl( int c )
 {

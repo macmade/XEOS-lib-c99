@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "math.h"
+#include <math.h>
 
 float acosf( float x )
 {

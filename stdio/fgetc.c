@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdio.h"
+#include <stdio.h>
 
 int fgetc( FILE * stream )
 {

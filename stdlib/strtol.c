@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdlib.h"
+#include <stdlib.h>
 
 long int strtol( const char * restrict nptr, char ** restrict endptr, int base )
 {

@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "time.h"
+#include <time.h>
 
 char * asctime_r( const struct tm * restrict timeptr, char * restrict buf )
 {

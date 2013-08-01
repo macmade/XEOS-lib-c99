@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdio.h"
+#include <stdio.h>
 
 static FILE __libc_stderr;
 static FILE __libc_stdin;

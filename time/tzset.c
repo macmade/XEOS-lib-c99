@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "time.h"
+#include <time.h>
 
 void tzset( void )
 {}

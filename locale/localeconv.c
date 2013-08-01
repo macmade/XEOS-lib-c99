@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "locale.h"
+#include <locale.h>
 
 struct lconv * localeconv( void )
 {

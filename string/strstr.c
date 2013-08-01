@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "string.h"
+#include <string.h>
 
 char * strstr( const char * s1, const char * s2 )
 {

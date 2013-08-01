@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "time.h"
+#include <time.h>
 
 int timer_delete( timer_t timerid )
 {

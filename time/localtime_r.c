@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "time.h"
+#include <time.h>
 
 struct tm * localtime_r( const time_t * restrict timer, struct tm * restrict result )
 {

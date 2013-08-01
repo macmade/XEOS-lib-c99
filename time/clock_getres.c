@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "time.h"
+#include <time.h>
 
 int clock_getres( clockid_t clock_id, struct timespec * res )
 {

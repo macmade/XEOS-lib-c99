@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "string.h"
+#include <string.h>
 
 char * strerror( int errnum )
 {

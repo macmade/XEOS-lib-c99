@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdlib.h"
+#include <stdlib.h>
 
 int wctomb( char * s, wchar_t wc )
 {

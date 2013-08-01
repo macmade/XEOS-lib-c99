@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdlib.h"
+#include <stdlib.h>
 
 long int labs( long int j )
 {

@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "math.h"
+#include <math.h>
 
 int __libc_math_isnormal_d( double x );
 int __libc_math_isnormal_d( double x )

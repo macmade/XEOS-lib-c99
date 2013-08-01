@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdlib.h"
+#include <stdlib.h>
 
 float strtof( const char * restrict nptr, char ** restrict endptr )
 {

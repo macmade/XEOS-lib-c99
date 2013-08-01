@@ -61,9 +61,9 @@
 
 /* $Id$ */
 
-#include "math.h"
-#include "float.h"
-#include "errno.h"
+#include <math.h>
+#include <float.h>
+#include <errno.h>
 
 float log2f( float x )
 {

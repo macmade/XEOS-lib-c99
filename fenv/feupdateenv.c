@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "fenv.h"
+#include <fenv.h>
 
 int feupdateenv( const fenv_t * envp )
 {

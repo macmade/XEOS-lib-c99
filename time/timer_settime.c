@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "time.h"
+#include <time.h>
 
 int timer_settime( timer_t timerid, int flags, const struct itimerspec * restrict value, struct itimerspec * restrict ovalue )
 {

@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "setjmp.h"
+#include <setjmp.h>
 
 int setjmp( jmp_buf env )
 {

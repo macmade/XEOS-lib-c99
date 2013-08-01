@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "fenv.h"
+#include <fenv.h>
 
 int feclearexcept( int excepts )
 {

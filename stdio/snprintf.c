@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdio.h"
+#include <stdio.h>
 
 int snprintf( char * restrict s, size_t n, const char * restrict format, ... )
 {

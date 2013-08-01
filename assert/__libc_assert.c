@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "assert.h"
+#include <assert.h>
 
 void __libc_assert( char * expression, char * file, int line );
 void __libc_assert( char * expression, char * file, int line )

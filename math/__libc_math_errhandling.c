@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "math.h"
+#include <math.h>
 
 int __libc_math_errhandling( void );
 int __libc_math_errhandling( void )

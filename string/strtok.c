@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "string.h"
+#include <string.h>
 
 char * strtok( char * restrict s1, const char * restrict s2 )
 {

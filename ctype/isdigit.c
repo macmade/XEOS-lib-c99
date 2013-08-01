@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "ctype.h"
+#include <ctype.h>
 
 int isdigit( int c )
 {

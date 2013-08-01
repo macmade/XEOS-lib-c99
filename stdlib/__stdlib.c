@@ -61,6 +61,6 @@
 
 /* $Id$ */
 
-#include "stdlib.h"
+#include <stdlib.h>
 
 int __LIBC_MB_CUR_MAX = 0;

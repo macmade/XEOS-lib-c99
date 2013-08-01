@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "time.h"
+#include <time.h>
 
 struct tm * gmtime_r( const time_t * restrict timer, struct tm * restrict result )
 {

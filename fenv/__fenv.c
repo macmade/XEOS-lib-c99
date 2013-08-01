@@ -61,6 +61,6 @@
 
 /* $Id$ */
 
-#include "fenv.h"
+#include <fenv.h>
 
 const fenv_t __LIBC_FE_DFL_ENV;

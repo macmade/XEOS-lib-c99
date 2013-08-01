@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "stdlib.h"
+#include <stdlib.h>
 
 unsigned long long int strtoull( const char * restrict nptr, char ** restrict endptr, int base )
 {

@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include "fenv.h"
+#include <fenv.h>
 
 int fegetexceptflag( fexcept_t * flagp, int excepts )
 {
