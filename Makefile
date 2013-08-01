@@ -94,8 +94,8 @@ DIR_SRC_WCTYPE      = $(PATH_SRC_LIB_LIBC)wctype/
 # Software arguments
 #-------------------------------------------------------------------------------
 
-ARGS_CC_32          := -iquote $(PATH_SRC_LIB_LIBC)include/ $(ARGS_CC_32)
-ARGS_CC_64          := -iquote $(PATH_SRC_LIB_LIBC)include/ $(ARGS_CC_64)
+ARGS_CC_32          := -iquote $(PATH_SRC_LIB_LIBC)include/c99/ $(ARGS_CC_32)
+ARGS_CC_64          := -iquote $(PATH_SRC_LIB_LIBC)include/c99/ $(ARGS_CC_64)
 
 #-------------------------------------------------------------------------------
 # Search paths
