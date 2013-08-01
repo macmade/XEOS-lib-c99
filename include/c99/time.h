@@ -63,7 +63,6 @@
 
 #ifndef __LIBC_TIME_H__
 #define __LIBC_TIME_H__
-#pragma once
 
 #ifdef __cplusplus
 extern "C" {

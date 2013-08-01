@@ -63,7 +63,6 @@
 
 #ifndef __LIBC_LOCALE_H__
 #define __LIBC_LOCALE_H__
-#pragma once
 
 #ifdef __cplusplus
 extern "C" {

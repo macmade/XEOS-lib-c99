@@ -63,7 +63,6 @@
 
 #ifndef __LIBC_SETJMP_H__
 #define __LIBC_SETJMP_H__
-#pragma once
 
 #ifdef __cplusplus
 extern "C" {

@@ -63,7 +63,6 @@
 
 #ifndef __LIBC_MATH_H__
 #define __LIBC_MATH_H__
-#pragma once
 
 #ifdef __cplusplus
 extern "C" {

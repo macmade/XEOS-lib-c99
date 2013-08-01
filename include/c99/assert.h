@@ -75,7 +75,6 @@
 
 #ifndef __LIBC_ASSERT_H__
 #define __LIBC_ASSERT_H__
-#pragma once
 
 #ifdef __cplusplus
 extern "C" {
