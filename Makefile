@@ -186,19 +186,19 @@ all:    $(_FILES_C_OBJ_BUILD)           \
         $(_FILES_C_OBJ_BUILD_WCHAR)     \
         $(_FILES_C_OBJ_BUILD_WCTYPE)
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc.a"$(COLOR_NONE)
-	@$(AR_32) $(ARGS_AR_32) $(PATH_BUILD_32_LIB_BIN)libc.a $(PATH_BUILD_32_LIB_OBJ_LIBC)*$(EXT_OBJ)
-	@$(RANLIB_32) $(PATH_BUILD_32_LIB_BIN)libc.a
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99.a"$(COLOR_NONE)
+	@$(AR_32) $(ARGS_AR_32) $(PATH_BUILD_32_LIB_BIN)libc99.a $(PATH_BUILD_32_LIB_OBJ_LIBC)*$(EXT_OBJ)
+	@$(RANLIB_32) $(PATH_BUILD_32_LIB_BIN)libc99.a
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc.a"$(COLOR_NONE)
-	@$(AR_64) $(ARGS_AR_64) $(PATH_BUILD_64_LIB_BIN)libc.a $(PATH_BUILD_64_LIB_OBJ_LIBC)*$(EXT_OBJ)
-	@$(RANLIB_64) $(PATH_BUILD_64_LIB_BIN)libc.a
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99.a"$(COLOR_NONE)
+	@$(AR_64) $(ARGS_AR_64) $(PATH_BUILD_64_LIB_BIN)libc99.a $(PATH_BUILD_64_LIB_OBJ_LIBC)*$(EXT_OBJ)
+	@$(RANLIB_64) $(PATH_BUILD_64_LIB_BIN)libc99.a
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc.so"$(COLOR_NONE)
-	@$(LD_32) $(ARGS_LD_SHARED_32) -o $(PATH_BUILD_32_LIB_BIN)libc.so $(PATH_BUILD_32_LIB_OBJ_LIBC)*$(EXT_OBJ_PIC)
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99.so"$(COLOR_NONE)
+	@$(LD_32) $(ARGS_LD_SHARED_32) -o $(PATH_BUILD_32_LIB_BIN)libc99.so $(PATH_BUILD_32_LIB_OBJ_LIBC)*$(EXT_OBJ_PIC)
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc.so"$(COLOR_NONE)
-	@$(LD_64) $(ARGS_LD_SHARED_64) -o $(PATH_BUILD_64_LIB_BIN)libc.so $(PATH_BUILD_64_LIB_OBJ_LIBC)*$(EXT_OBJ_PIC)
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99.so"$(COLOR_NONE)
+	@$(LD_64) $(ARGS_LD_SHARED_64) -o $(PATH_BUILD_64_LIB_BIN)libc99.so $(PATH_BUILD_64_LIB_OBJ_LIBC)*$(EXT_OBJ_PIC)
 	
 # Cleans the build files
 clean:
