@@ -86,11 +86,24 @@ time_t      mktime( struct tm * timeptr );
 size_t      strftime( char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr );
 time_t      time( time_t * timer );
 
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __LIBC_TIME_H__ */
+
 /*******************************************************************************
  # POSIX definitions
  ******************************************************************************/
 
 #ifdef _POSIX_C_SOURCE
+
+#ifndef __LIBC_TIME_POSIX_H__
+#define __LIBC_TIME_POSIX_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <signal.h>
 #include <system/types/pid_t.h>
@@ -129,10 +142,10 @@ int         timer_gettime( timer_t timerid, struct itimerspec * value );
 int         timer_settime( timer_t timerid, int flags, const struct itimerspec * restrict value, struct itimerspec * restrict ovalue );
 void        tzset( void );
 
-#endif /* _POSIX_C_SOURCE */
-
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __LIBC_TIME_H__ */
+#endif /* __LIBC_TIME_POSIX_H__ */
+
+#endif /* _POSIX_C_SOURCE */

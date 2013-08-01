@@ -85,11 +85,24 @@ void ( * signal( int sig, void ( * func )( int ) ) )( int );
 
 int raise( int sig );
 
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __LIBC_SIGNAL_H__ */
+
 /*******************************************************************************
  # POSIX definitions
  ******************************************************************************/
 
 #ifdef _POSIX_C_SOURCE
+
+#ifndef __LIBC_SIGNAL_POSIX_H__
+#define __LIBC_SIGNAL_POSIX_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <time.h>
 #include <system/types/pthread_t.h>
@@ -229,10 +242,10 @@ int     sigtimedwait( const sigset_t * restrict, siginfo_t * restrict, const str
 int     sigwait( const sigset_t * restrict, int * restrict );
 int     sigwaitinfo( const sigset_t * restrict, siginfo_t * restrict );
 
-#endif /* _POSIX_C_SOURCE */
-
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __LIBC_SIGNAL_H__ */
+#endif /* __LIBC_SIGNAL_POSIX_H__ */
+
+#endif /* _POSIX_C_SOURCE */
