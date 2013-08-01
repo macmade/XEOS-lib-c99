@@ -1,7 +1,7 @@
 /*******************************************************************************
  * XEOS - X86 Experimental Operating System
  * 
- * Copyright (c) 2010-2012, Jean-David Gadina - www.xs-labs.com
+ * Copyright (c) 2010-2013, Jean-David Gadina - www.xs-labs.com
  * All rights reserved.
  * 
  * XEOS Software License - Version 1.0 - December 21, 2012
@@ -63,10 +63,9 @@
 
 #include <time.h>
 
-struct tm * gmtime_r( const time_t * restrict timer, struct tm * restrict result )
+struct tm * gmtime( const time_t * timer )
 {
     ( void )timer;
-    ( void )result;
     
     return NULL;
 }
