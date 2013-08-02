@@ -72,9 +72,7 @@ extern "C" {
 #define EILSEQ		0x02    /* Illegal byte sequence */
 #define	ERANGE		0x03    /* Result too large */
 
-#define errno ( __xeos_lib_c99_errno )
-
-extern int __xeos_lib_c99_errno;
+extern int errno;
 
 #ifdef __cplusplus
 }
