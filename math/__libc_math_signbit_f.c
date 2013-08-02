@@ -63,8 +63,8 @@
 
 #include <math.h>
 
-int __xeos_lib_c99_math_signbit_f( float x );
-int __xeos_lib_c99_math_signbit_f( float x )
+int __XEOS_Lib_C99_Math_signbit_f( float x );
+int __XEOS_Lib_C99_Math_signbit_f( float x )
 {
     ( void )x;
     

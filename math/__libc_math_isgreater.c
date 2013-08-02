@@ -63,8 +63,8 @@
 
 #include <math.h>
 
-int __xeos_lib_c99_math_isgreater( long double x, long double y );
-int __xeos_lib_c99_math_isgreater( long double x, long double y )
+int __XEOS_Lib_C99_Math_isgreater( long double x, long double y );
+int __XEOS_Lib_C99_Math_isgreater( long double x, long double y )
 {
     ( void )x;
     ( void )y;

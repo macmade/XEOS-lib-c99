@@ -85,9 +85,9 @@ extern "C" {
 #define FP_ILOGBNAN             ( -2147483647 - 1 )
 #define MATH_ERRNO              1
 #define MATH_ERREXCEPT          2
-#define math_errhandling        ( __xeos_lib_c99_math_errhandling() )
+#define math_errhandling        ( __XEOS_Lib_C99_Math_errhandling() )
 
-extern int __xeos_lib_c99_math_errhandling( void );
+extern int __XEOS_Lib_C99_Math_errhandling( void );
 
 #define NAN                     ( nanf() )
 #undef  FP_FAST_FMA
@@ -96,81 +96,81 @@ extern int __xeos_lib_c99_math_errhandling( void );
 
 #define fpclassify( _x_ )                                                                   \
     (                                                                                       \
-        ( sizeof( _x_ ) == sizeof( float  ) ) ? __xeos_lib_c99_math_fpclassify_f( _x_ ) :   \
-        ( sizeof( _x_ ) == sizeof( double ) ) ? __xeos_lib_c99_math_fpclassify_d( _x_ ) :   \
-                                                __xeos_lib_c99_math_fpclassify_l( _x_ )     \
+        ( sizeof( _x_ ) == sizeof( float  ) ) ? __XEOS_Lib_C99_Math_fpclassify_f( _x_ ) :   \
+        ( sizeof( _x_ ) == sizeof( double ) ) ? __XEOS_Lib_C99_Math_fpclassify_d( _x_ ) :   \
+                                                __XEOS_Lib_C99_Math_fpclassify_l( _x_ )     \
     )
 
-extern int __xeos_lib_c99_math_fpclassify_f( float x );
-extern int __xeos_lib_c99_math_fpclassify_d( double x );
-extern int __xeos_lib_c99_math_fpclassify_l( long double x );
+extern int __XEOS_Lib_C99_Math_fpclassify_f( float x );
+extern int __XEOS_Lib_C99_Math_fpclassify_d( double x );
+extern int __XEOS_Lib_C99_Math_fpclassify_l( long double x );
 
 #define isfinite( _x_ )                                                                     \
     (                                                                                       \
-        ( sizeof( _x_ ) == sizeof( float  ) ) ? __xeos_lib_c99_math_isfinite_f( _x_ ) :     \
-        ( sizeof( _x_ ) == sizeof( double ) ) ? __xeos_lib_c99_math_isfinite_d( _x_ ) :     \
-                                                __xeos_lib_c99_math_isfinite_l( _x_ )       \
+        ( sizeof( _x_ ) == sizeof( float  ) ) ? __XEOS_Lib_C99_Math_isfinite_f( _x_ ) :     \
+        ( sizeof( _x_ ) == sizeof( double ) ) ? __XEOS_Lib_C99_Math_isfinite_d( _x_ ) :     \
+                                                __XEOS_Lib_C99_Math_isfinite_l( _x_ )       \
     )
 
-extern int __xeos_lib_c99_math_isfinite_f( float x );
-extern int __xeos_lib_c99_math_isfinite_d( double x );
-extern int __xeos_lib_c99_math_isfinite_l( long double x );
+extern int __XEOS_Lib_C99_Math_isfinite_f( float x );
+extern int __XEOS_Lib_C99_Math_isfinite_d( double x );
+extern int __XEOS_Lib_C99_Math_isfinite_l( long double x );
 
 #define isinf( _x_ )                                                                        \
     (                                                                                       \
-        ( sizeof( _x_ ) == sizeof( float  ) ) ? __xeos_lib_c99_math_isinf_f( _x_ ) :        \
-        ( sizeof( _x_ ) == sizeof( double ) ) ? __xeos_lib_c99_math_isinf_d( _x_ ) :        \
-                                                __xeos_lib_c99_math_isinf_l( _x_ )          \
+        ( sizeof( _x_ ) == sizeof( float  ) ) ? __XEOS_Lib_C99_Math_isinf_f( _x_ ) :        \
+        ( sizeof( _x_ ) == sizeof( double ) ) ? __XEOS_Lib_C99_Math_isinf_d( _x_ ) :        \
+                                                __XEOS_Lib_C99_Math_isinf_l( _x_ )          \
     )
 
-extern int __xeos_lib_c99_math_isinf_f( float x );
-extern int __xeos_lib_c99_math_isinf_d( double x );
-extern int __xeos_lib_c99_math_isinf_l( long double x );
+extern int __XEOS_Lib_C99_Math_isinf_f( float x );
+extern int __XEOS_Lib_C99_Math_isinf_d( double x );
+extern int __XEOS_Lib_C99_Math_isinf_l( long double x );
 
 #define isnan( _x_ )                                                                        \
     (                                                                                       \
-        ( sizeof( _x_ ) == sizeof( float  ) ) ? __xeos_lib_c99_math_isnan_f( _x_ ) :        \
-        ( sizeof( _x_ ) == sizeof( double ) ) ? __xeos_lib_c99_math_isnan_d( _x_ ) :        \
-                                                __xeos_lib_c99_math_isnan_l( _x_ )          \
+        ( sizeof( _x_ ) == sizeof( float  ) ) ? __XEOS_Lib_C99_Math_isnan_f( _x_ ) :        \
+        ( sizeof( _x_ ) == sizeof( double ) ) ? __XEOS_Lib_C99_Math_isnan_d( _x_ ) :        \
+                                                __XEOS_Lib_C99_Math_isnan_l( _x_ )          \
     )
 
-extern int __xeos_lib_c99_math_isnan_f( float x );
-extern int __xeos_lib_c99_math_isnan_d( double x );
-extern int __xeos_lib_c99_math_isnan_l( long double x );
+extern int __XEOS_Lib_C99_Math_isnan_f( float x );
+extern int __XEOS_Lib_C99_Math_isnan_d( double x );
+extern int __XEOS_Lib_C99_Math_isnan_l( long double x );
 
 #define isnormal( _x_ )                                                                     \
     (                                                                                       \
-        ( sizeof( _x_ ) == sizeof( float  ) ) ? __xeos_lib_c99_math_isnormal_f( _x_ ) :     \
-        ( sizeof( _x_ ) == sizeof( double ) ) ? __xeos_lib_c99_math_isnormal_d( _x_ ) :     \
-                                                __xeos_lib_c99_math_isnormal_l( _x_ )       \
+        ( sizeof( _x_ ) == sizeof( float  ) ) ? __XEOS_Lib_C99_Math_isnormal_f( _x_ ) :     \
+        ( sizeof( _x_ ) == sizeof( double ) ) ? __XEOS_Lib_C99_Math_isnormal_d( _x_ ) :     \
+                                                __XEOS_Lib_C99_Math_isnormal_l( _x_ )       \
     )
 
-extern int __xeos_lib_c99_math_isnormal_f( float x );
-extern int __xeos_lib_c99_math_isnormal_d( double x );
-extern int __xeos_lib_c99_math_isnormal_l( long double x );
+extern int __XEOS_Lib_C99_Math_isnormal_f( float x );
+extern int __XEOS_Lib_C99_Math_isnormal_d( double x );
+extern int __XEOS_Lib_C99_Math_isnormal_l( long double x );
 
 #define signbit( _x_ )                                                                      \
     (                                                                                       \
-        ( sizeof( _x_ ) == sizeof( float  ) ) ? __xeos_lib_c99_math_signbit_f( _x_ ) :      \
-        ( sizeof( _x_ ) == sizeof( double ) ) ? __xeos_lib_c99_math_signbit_d( _x_ ) :      \
-                                                __xeos_lib_c99_math_signbit_l( _x_ )        \
+        ( sizeof( _x_ ) == sizeof( float  ) ) ? __XEOS_Lib_C99_Math_signbit_f( _x_ ) :      \
+        ( sizeof( _x_ ) == sizeof( double ) ) ? __XEOS_Lib_C99_Math_signbit_d( _x_ ) :      \
+                                                __XEOS_Lib_C99_Math_signbit_l( _x_ )        \
     )
 
-extern int __xeos_lib_c99_math_signbit_f( float x );
-extern int __xeos_lib_c99_math_signbit_d( double x );
-extern int __xeos_lib_c99_math_signbit_l( long double x );
+extern int __XEOS_Lib_C99_Math_signbit_f( float x );
+extern int __XEOS_Lib_C99_Math_signbit_d( double x );
+extern int __XEOS_Lib_C99_Math_signbit_l( long double x );
 
-#define isgreater( _x_, _y_ )       __xeos_lib_c99_math_isgreater( ( long double )( _x_ ), ( long double )( _y_ ) )
-#define isless( _x_, _y_ )          __xeos_lib_c99_math_isless( ( long double )( _x_ ), ( long double )( _y_ ) )
-#define islessequal( _x_, _y_ )     __xeos_lib_c99_math_islessequal( ( long double )( _x_ ), ( long double )( _y_ ) )
-#define islessgreater( _x_, _y_ )   __xeos_lib_c99_math_islessgreater( ( long double )( _x_ ), ( long double )( _y_ ) )
-#define isunordered( _x_, _y_ )     __xeos_lib_c99_math_isunordered( ( long double )( _x_ ), ( long double )( _y_ ) )
+#define isgreater( _x_, _y_ )       __XEOS_Lib_C99_Math_isgreater( ( long double )( _x_ ), ( long double )( _y_ ) )
+#define isless( _x_, _y_ )          __XEOS_Lib_C99_Math_isless( ( long double )( _x_ ), ( long double )( _y_ ) )
+#define islessequal( _x_, _y_ )     __XEOS_Lib_C99_Math_islessequal( ( long double )( _x_ ), ( long double )( _y_ ) )
+#define islessgreater( _x_, _y_ )   __XEOS_Lib_C99_Math_islessgreater( ( long double )( _x_ ), ( long double )( _y_ ) )
+#define isunordered( _x_, _y_ )     __XEOS_Lib_C99_Math_isunordered( ( long double )( _x_ ), ( long double )( _y_ ) )
 
-extern int __xeos_lib_c99_math_isgreater( long double x, long double y );
-extern int __xeos_lib_c99_math_isless( long double x, long double y );
-extern int __xeos_lib_c99_math_islessequal( long double x, long double y );
-extern int __xeos_lib_c99_math_islessgreater( long double x, long double y );
-extern int __xeos_lib_c99_math_isunordered( long double x, long double y );
+extern int __XEOS_Lib_C99_Math_isgreater( long double x, long double y );
+extern int __XEOS_Lib_C99_Math_isless( long double x, long double y );
+extern int __XEOS_Lib_C99_Math_islessequal( long double x, long double y );
+extern int __XEOS_Lib_C99_Math_islessgreater( long double x, long double y );
+extern int __XEOS_Lib_C99_Math_isunordered( long double x, long double y );
 
 double          acos( double x );
 float           acosf( float x );

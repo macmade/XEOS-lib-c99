@@ -63,8 +63,8 @@
 
 #include <math.h>
 
-int __xeos_lib_c99_math_isnormal_d( double x );
-int __xeos_lib_c99_math_isnormal_d( double x )
+int __XEOS_Lib_C99_Math_isnormal_d( double x );
+int __XEOS_Lib_C99_Math_isnormal_d( double x )
 {
     ( void )x;
     
