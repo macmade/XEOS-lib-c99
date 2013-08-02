@@ -1,0 +1,205 @@
+<code_set_name>     US-ASCII
+<mb_cur_max>        1
+<mb_cur_min>        1
+<escape_char>       /
+<comment_char>      #
+
+#-------------------------------------------------------------------------------
+# Copyright (c) 2010-2013, Jean-David Gadina - www.xs-labs.com
+# All rights reserved.
+# 
+# XEOS Software License - Version 1.0 - December 21, 2012
+# 
+# Permission is hereby granted, free of charge, to any person or organisation
+# obtaining a copy of the software and accompanying documentation covered by
+# this license (the "Software") to deal in the Software, with or without
+# modification, without restriction, including without limitation the rights
+# to use, execute, display, copy, reproduce, transmit, publish, distribute,
+# modify, merge, prepare derivative works of the Software, and to permit
+# third-parties to whom the Software is furnished to do so, all subject to the
+# following conditions:
+# 
+#       1.  Redistributions of source code, in whole or in part, must retain the
+#           above copyright notice and this entire statement, including the
+#           above license grant, this restriction and the following disclaimer.
+# 
+#       2.  Redistributions in binary form must reproduce the above copyright
+#           notice and this entire statement, including the above license grant,
+#           this restriction and the following disclaimer in the documentation
+#           and/or other materials provided with the distribution, unless the
+#           Software is distributed by the copyright owner as a library.
+#           A "library" means a collection of software functions and/or data
+#           prepared so as to be conveniently linked with application programs
+#           (which use some of those functions and data) to form executables.
+# 
+#       3.  The Software, or any substancial portion of the Software shall not
+#           be combined, included, derived, or linked (statically or
+#           dynamically) with software or libraries licensed under the terms
+#           of any GNU software license, including, but not limited to, the GNU
+#           General Public License (GNU/GPL) or the GNU Lesser General Public
+#           License (GNU/LGPL).
+# 
+#       4.  All advertising materials mentioning features or use of this
+#           software must display an acknowledgement stating that the product
+#           includes software developed by the copyright owner.
+# 
+#       5.  Neither the name of the copyright owner nor the names of its
+#           contributors may be used to endorse or promote products derived from
+#           this software without specific prior written permission.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT OWNER AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+# THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+# PURPOSE, TITLE AND NON-INFRINGEMENT ARE DISCLAIMED.
+# 
+# IN NO EVENT SHALL THE COPYRIGHT OWNER, CONTRIBUTORS OR ANYONE DISTRIBUTING
+# THE SOFTWARE BE LIABLE FOR ANY CLAIM, DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN ACTION OF CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+# NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF OR IN CONNECTION WITH
+# THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE, EVEN IF ADVISED
+# OF THE POSSIBILITY OF SUCH DAMAGE.
+#-------------------------------------------------------------------------------
+
+# $Id$
+
+CHARMAP
+
+<NUL>                   /x00        NULL
+<SOH>                   /x01        START OF HEADING
+<STX>                   /x02        START OF TEXT
+<ETX>                   /x03        END OF TEXT
+<EOT>                   /x04        END OF TRANSMISSION
+<ENQ>                   /x05        ENQUIRY
+<ACK>                   /x06        ACKNOWLEDGE
+<alert>                 /x07        BELL
+<backspace>             /x08        BACKSPACE
+<tab>                   /x09        HORIZONTAL TABULATION
+<newline>               /x0a        LINE FEED
+<vertical-tab>          /x0b        VERTICAL TABULATION
+<form-feed>             /x0c        FORM FEED
+<carriage-return>       /x0d        CARRIAGE RETURN
+<SO>                    /x0e        SHIFT OUT
+<SI>                    /x0f        SHIFT IN
+<DLE>                   /x10        DATA LINK ESCAPE
+<DC1>                   /x11        DEVICE CONTROL ONE
+<DC2>                   /x12        DEVICE CONTROL TWO
+<DC3>                   /x13        DEVICE CONTROL THREE
+<DC4>                   /x14        DEVICE CONTROL FOUR
+<NAK>                   /x15        NEGATIVE ACKNOWLEDGE
+<SYN>                   /x16        SYNCHRONOUS IDLE
+<ETB>                   /x17        END OF TRANSMISSION BLOCK
+<CAN>                   /x18        CANCEL
+<EM>                    /x19        END OF MEDIUM
+<SUB>                   /x1a        SUBSTITUTE
+<ESC>                   /x1b        ESCAPE
+<IS4>                   /x1c        FILE SEPARATOR
+<IS3>                   /x1d        GROUP SEPARATOR
+<IS2>                   /x1e        RECORD SEPARATOR
+<IS1>                   /x1f        UNIT SEPARATOR
+<space>                 /x20        SPACE
+<exclamation-mark>      /x21        EXCLAMATION MARK
+<quotation-mark>        /x22        QUOTATION MARK
+<number-sign>           /x23        NUMBER SIGN
+<dollar-sign>           /x24        DOLLAR SIGN
+<percent-sign>          /x25        PERCENT SIGN
+<ampersand>             /x26        AMPERSAND
+<apostrophe>            /x27        APOSTROPHE
+<left-parenthesis>      /x28        LEFT PARENTHESIS
+<right-parenthesis>     /x29        RIGHT PARENTHESIS
+<asterisk>              /x2a        ASTERISK
+<plus-sign>             /x2b        PLUS SIGN
+<comma>                 /x2c        COMMA
+<hyphen>                /x2d        HYPHEN-MINUS
+<period>                /x2e        FULL STOP
+<slash>                 /x2f        SOLIDUS
+<zero>                  /x30        DIGIT ZERO
+<one>                   /x31        DIGIT ONE
+<two>                   /x32        DIGIT TWO
+<three>                 /x33        DIGIT THREE
+<four>                  /x34        DIGIT FOUR
+<five>                  /x35        DIGIT FIVE
+<six>                   /x36        DIGIT SIX
+<seven>                 /x37        DIGIT SEVEN
+<eight>                 /x38        DIGIT EIGHT
+<nine>                  /x39        DIGIT NINE
+<colon>                 /x3a        COLON
+<semicolon>             /x3b        SEMICOLON
+<less-than-sign>        /x3c        LESS-THAN SIGN
+<equals-sign>           /x3d        EQUALS SIGN
+<greater-than-sign>     /x3e        GREATER-THAN SIGN
+<question-mark>         /x3f        QUESTION MARK
+<commercial-at>         /x40        COMMERCIAL AT
+<A>                     /x41        LATIN CAPITAL LETTER A
+<B>                     /x42        LATIN CAPITAL LETTER B
+<C>                     /x43        LATIN CAPITAL LETTER C
+<D>                     /x44        LATIN CAPITAL LETTER D
+<E>                     /x45        LATIN CAPITAL LETTER E
+<F>                     /x46        LATIN CAPITAL LETTER F
+<G>                     /x47        LATIN CAPITAL LETTER G
+<H>                     /x48        LATIN CAPITAL LETTER H
+<I>                     /x49        LATIN CAPITAL LETTER I
+<J>                     /x4a        LATIN CAPITAL LETTER J
+<K>                     /x4b        LATIN CAPITAL LETTER K
+<L>                     /x4c        LATIN CAPITAL LETTER L
+<M>                     /x4d        LATIN CAPITAL LETTER M
+<N>                     /x4e        LATIN CAPITAL LETTER N
+<O>                     /x4f        LATIN CAPITAL LETTER O
+<P>                     /x50        LATIN CAPITAL LETTER P
+<Q>                     /x51        LATIN CAPITAL LETTER Q
+<R>                     /x52        LATIN CAPITAL LETTER R
+<S>                     /x53        LATIN CAPITAL LETTER S
+<T>                     /x54        LATIN CAPITAL LETTER T
+<U>                     /x55        LATIN CAPITAL LETTER U
+<V>                     /x56        LATIN CAPITAL LETTER V
+<W>                     /x57        LATIN CAPITAL LETTER W
+<X>                     /x58        LATIN CAPITAL LETTER X
+<Y>                     /x59        LATIN CAPITAL LETTER Y
+<Z>                     /x5a        LATIN CAPITAL LETTER Z
+<left-square-bracket>   /x5b        LEFT SQUARE BRACKET
+<backslash>             /x5c        REVERSE SOLIDUS
+<right-square-bracket>  /x5d        RIGHT SQUARE BRACKET
+<circumflex>            /x5e        CIRCUMFLEX ACCENT
+<underscore>            /x5f        LOW LINE
+<grave-accent>          /x60        GRAVE ACCENT
+<a>                     /x61        LATIN SMALL LETTER A
+<b>                     /x62        LATIN SMALL LETTER B
+<c>                     /x63        LATIN SMALL LETTER C
+<d>                     /x64        LATIN SMALL LETTER D
+<e>                     /x65        LATIN SMALL LETTER E
+<f>                     /x66        LATIN SMALL LETTER F
+<g>                     /x67        LATIN SMALL LETTER G
+<h>                     /x68        LATIN SMALL LETTER H
+<i>                     /x69        LATIN SMALL LETTER I
+<j>                     /x6a        LATIN SMALL LETTER J
+<k>                     /x6b        LATIN SMALL LETTER K
+<l>                     /x6c        LATIN SMALL LETTER L
+<m>                     /x6d        LATIN SMALL LETTER M
+<n>                     /x6e        LATIN SMALL LETTER N
+<o>                     /x6f        LATIN SMALL LETTER O
+<p>                     /x70        LATIN SMALL LETTER P
+<q>                     /x71        LATIN SMALL LETTER Q
+<r>                     /x72        LATIN SMALL LETTER R
+<s>                     /x73        LATIN SMALL LETTER S
+<t>                     /x74        LATIN SMALL LETTER T
+<u>                     /x75        LATIN SMALL LETTER U
+<v>                     /x76        LATIN SMALL LETTER V
+<w>                     /x77        LATIN SMALL LETTER W
+<x>                     /x78        LATIN SMALL LETTER X
+<y>                     /x79        LATIN SMALL LETTER Y
+<z>                     /x7a        LATIN SMALL LETTER Z
+<left-curly-bracket>    /x7b        LEFT CURLY BRACKET
+<vertical-line>         /x7c        VERTICAL LINE
+<right-curly-bracket>   /x7d        RIGHT CURLY BRACKET
+<tilde>                 /x7e        TILDE
+<DEL>                   /x7f        DELETE
+
+END CHARMAP
+
+WIDTH
+
+<U0000>...<U007F>       1
+
+END WIDTH
