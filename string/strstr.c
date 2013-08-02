@@ -69,6 +69,11 @@ char * strstr( const char * s1, const char * s2 )
     const char * p2;
     const char * p3;
     
+    if( s2[ 0 ] == 0 )
+    {
+        return s1;
+    }
+    
     p1 = s1;
     p3 = s2;
     
