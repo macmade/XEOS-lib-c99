@@ -84,9 +84,9 @@ extern "C" {
 #define FE_DOWNWARD         0x00800000
 #define FE_TOWARDZERO       0x00C00000
 
-#define FE_DFL_ENV          &__XEOS_LIB_C99_FE_DFL_ENV
+#define FE_DFL_ENV          &__XEOS_Lib_C99_FEDefaultEnv
 
-extern const fenv_t __XEOS_LIB_C99_FE_DFL_ENV;
+extern const fenv_t __XEOS_Lib_C99_FEDefaultEnv;
 
 int feclearexcept( int excepts );
 int fegetexceptflag( fexcept_t * flagp, int excepts );
