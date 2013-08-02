@@ -125,13 +125,19 @@ am_pm       "<A><M>";   \
 
 d_t_fmt     "<percent-sign><a><space><percent-sign><b><space><percent-sign><e><space><percent-sign><H><colon><percent-sign><M><colon><percent-sign><S><space><percent-sign><Y>"
 
-# Appropriate date representation (%x)   "%m/%d/%y"
+# Appropriate date representation (%x)
+#       "%m/%d/%y"
+
 d_fmt       "<percent-sign><m><slash><percent-sign><d><slash><percent-sign><y>"
 
-# Appropriate time representation (%X)   "%H:%M:%S"
+# Appropriate time representation (%X)
+#       "%H:%M:%S"
+
 t_fmt       "<percent-sign><H><colon><percent-sign><M><colon><percent-sign><S>"
 
-# Appropriate 12-hour time representation (%r) "%I:%M:%S %p"
+# Appropriate 12-hour time representation (%r)
+#       "%I:%M:%S %p"
+
 t_fmt_ampm  "<percent-sign><I><colon><percent-sign><M><colon><percent-sign><S><space><percent_sign><p>"
 
 END LC_TIME
