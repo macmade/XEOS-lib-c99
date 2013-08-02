@@ -86,9 +86,9 @@ extern "C" {
 
 #define L_tmpnam                    1024
 
-#define SEEK_SET                    0
-#define SEEK_CUR                    1
-#define SEEK_END                    2
+#include <system/types/seek_set.h>
+#include <system/types/seek_cur.h>
+#include <system/types/seek_end.h>
 
 #define TMP_MAX                     0xFFFF
 
