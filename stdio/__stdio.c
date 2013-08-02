@@ -63,10 +63,10 @@
 
 #include <stdio.h>
 
-static FILE __libc_stderr;
-static FILE __libc_stdin;
-static FILE __libc_stdout;
+static FILE __xeos_lib_c99_stderr;
+static FILE __xeos_lib_c99_stdin;
+static FILE __xeos_lib_c99_stdout;
 
-FILE * __libc_stderr_p  = &__libc_stderr;
-FILE * __libc_stdin_p   = &__libc_stdin;
-FILE * __libc_stdout_p  = &__libc_stdout;
+FILE * __xeos_lib_c99_stderr_p  = &__xeos_lib_c99_stderr;
+FILE * __xeos_lib_c99_stdin_p   = &__xeos_lib_c99_stdin;
+FILE * __xeos_lib_c99_stdout_p  = &__xeos_lib_c99_stdout;

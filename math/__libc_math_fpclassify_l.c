@@ -63,8 +63,8 @@
 
 #include <math.h>
 
-int __libc_math_fpclassify_l( long double x );
-int __libc_math_fpclassify_l( long double x )
+int __xeos_lib_c99_math_fpclassify_l( long double x );
+int __xeos_lib_c99_math_fpclassify_l( long double x )
 {
     ( void )x;
     

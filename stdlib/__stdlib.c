@@ -63,4 +63,4 @@
 
 #include <stdlib.h>
 
-int __LIBC_MB_CUR_MAX = 0;
+int __XEOS_LIB_C99_MB_CUR_MAX = 0;

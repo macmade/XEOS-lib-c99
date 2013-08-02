@@ -63,4 +63,4 @@
 
 #include <fenv.h>
 
-const fenv_t __LIBC_FE_DFL_ENV;
+const fenv_t __XEOS_LIB_C99_FE_DFL_ENV;

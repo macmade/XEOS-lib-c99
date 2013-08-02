@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_SIGNAL_H__
-#define __LIBC_SIGNAL_H__
+#ifndef __XEOS_LIB_C99_SIGNAL_H__
+#define __XEOS_LIB_C99_SIGNAL_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -89,4 +89,4 @@ int raise( int sig );
 }
 #endif
 
-#endif /* __LIBC_SIGNAL_H__ */
+#endif /* __XEOS_LIB_C99_SIGNAL_H__ */

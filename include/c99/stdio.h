@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_STDIO_H__
-#define __LIBC_STDIO_H__
+#ifndef __XEOS_LIB_C99_STDIO_H__
+#define __XEOS_LIB_C99_STDIO_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -92,13 +92,13 @@ extern "C" {
 
 #define TMP_MAX                     0xFFFF
 
-#define stderr                      __libc_stderr_p
-#define stdin                       __libc_stdin_p
-#define stdout                      __libc_stdout_p
+#define stderr                      __xeos_lib_c99_stderr_p
+#define stdin                       __xeos_lib_c99_stdin_p
+#define stdout                      __xeos_lib_c99_stdout_p
 
-extern FILE * __libc_stderr_p;
-extern FILE * __libc_stdin_p;
-extern FILE * __libc_stdout_p;
+extern FILE * __xeos_lib_c99_stderr_p;
+extern FILE * __xeos_lib_c99_stdin_p;
+extern FILE * __xeos_lib_c99_stdout_p;
 
 int         remove( const char * filename );
 int         rename( const char * old, const char * new );
@@ -151,4 +151,4 @@ void        perror( const char * s );
 }
 #endif
 
-#endif /* __LIBC_STDIO_H__ */
+#endif /* __XEOS_LIB_C99_STDIO_H__ */

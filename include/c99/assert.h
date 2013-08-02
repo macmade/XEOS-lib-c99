@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#undef  assert
+#undef assert
 
 #ifdef NDEBUG
     
@@ -69,21 +69,21 @@
     
 #else
     
-    #define assert( _e_ )   ( _e_ ) ? ( ( void )0 ) : ( __libc_assert( #_e_, __FILE__, __LINE__ ) )
+    #define assert( _e_ )   ( _e_ ) ? ( ( void )0 ) : ( __xeos_lib_c99_assert( #_e_, __FILE__, __LINE__ ) )
     
 #endif
 
-#ifndef __LIBC_ASSERT_H__
-#define __LIBC_ASSERT_H__
+#ifndef __XEOS_LIB_C99_ASSERT_H__
+#define __XEOS_LIB_C99_ASSERT_H__
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-extern void __libc_assert( char * expression, char * file, int line );
+extern void __xeos_lib_c99_assert( char * expression, char * file, int line );
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __LIBC_ASSERT_H__ */
+#endif /* __XEOS_LIB_C99_ASSERT_H__ */

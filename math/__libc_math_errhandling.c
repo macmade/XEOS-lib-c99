@@ -63,8 +63,8 @@
 
 #include <math.h>
 
-int __libc_math_errhandling( void );
-int __libc_math_errhandling( void )
+int __xeos_lib_c99_math_errhandling( void );
+int __xeos_lib_c99_math_errhandling( void )
 {
     return 0;
 }

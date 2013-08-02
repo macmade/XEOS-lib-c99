@@ -63,4 +63,4 @@
 
 #include <errno.h>
 
-int __libc_errno = 0;
+int __xeos_lib_c99_errno = 0;

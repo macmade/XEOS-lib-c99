@@ -63,8 +63,8 @@
 
 #include <math.h>
 
-int __libc_math_isnan_d( double x );
-int __libc_math_isnan_d( double x )
+int __xeos_lib_c99_math_isnan_d( double x );
+int __xeos_lib_c99_math_isnan_d( double x )
 {
     ( void )x;
     

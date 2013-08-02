@@ -63,8 +63,8 @@
 
 #include <assert.h>
 
-void __libc_assert( char * expression, char * file, int line );
-void __libc_assert( char * expression, char * file, int line )
+void __xeos_lib_c99_assert( char * expression, char * file, int line );
+void __xeos_lib_c99_assert( char * expression, char * file, int line )
 {
     ( void )expression;
     ( void )file;

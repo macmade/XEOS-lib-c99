@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_STDLIB_H__
-#define __LIBC_STDLIB_H__
+#ifndef __XEOS_LIB_C99_STDLIB_H__
+#define __XEOS_LIB_C99_STDLIB_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -79,9 +79,9 @@ extern "C" {
 #define EXIT_SUCCESS            0
 
 #define RAND_MAX                0x7FFFFFFF
-#define	MB_CUR_MAX              __LIBC_MB_CUR_MAX
+#define	MB_CUR_MAX              __XEOS_LIB_C99_MB_CUR_MAX
 
-extern int __LIBC_MB_CUR_MAX;
+extern int __XEOS_LIB_C99_MB_CUR_MAX;
 
 double                  atof( const char * nptr );
 int                     atoi( const char * nptr );
@@ -124,4 +124,4 @@ size_t                  wcstombs( char * restrict s, const wchar_t * restrict pw
 }
 #endif
 
-#endif /* __LIBC_STDLIB_H__ */
+#endif /* __XEOS_LIB_C99_STDLIB_H__ */

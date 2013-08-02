@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_STDBOOL_H__
-#define __LIBC_STDBOOL_H__
+#ifndef __XEOS_LIB_C99_STDBOOL_H__
+#define __XEOS_LIB_C99_STDBOOL_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -83,4 +83,4 @@ extern "C" {
 }
 #endif
 
-#endif /* __LIBC_STDBOOL_H__ */
+#endif /* __XEOS_LIB_C99_STDBOOL_H__ */

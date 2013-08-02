@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_STRING_H__
-#define __LIBC_STRING_H__
+#ifndef __XEOS_LIB_C99_STRING_H__
+#define __XEOS_LIB_C99_STRING_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -98,4 +98,4 @@ size_t      strlen( const char * s );
 }
 #endif
 
-#endif /* __LIBC_STRING_H__ */
+#endif /* __XEOS_LIB_C99_STRING_H__ */

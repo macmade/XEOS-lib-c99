@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_FENV_H__
-#define __LIBC_FENV_H__
+#ifndef __XEOS_LIB_C99_FENV_H__
+#define __XEOS_LIB_C99_FENV_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -84,9 +84,9 @@ extern "C" {
 #define FE_DOWNWARD         0x00800000
 #define FE_TOWARDZERO       0x00C00000
 
-#define FE_DFL_ENV          &__LIBC_FE_DFL_ENV
+#define FE_DFL_ENV          &__XEOS_LIB_C99_FE_DFL_ENV
 
-extern const fenv_t __LIBC_FE_DFL_ENV;
+extern const fenv_t __XEOS_LIB_C99_FE_DFL_ENV;
 
 int feclearexcept( int excepts );
 int fegetexceptflag( fexcept_t * flagp, int excepts );
@@ -104,4 +104,4 @@ int feupdateenv( const fenv_t * envp );
 }
 #endif
 
-#endif /* __LIBC_FENV_H__ */
+#endif /* __XEOS_LIB_C99_FENV_H__ */

@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_CTYPE_H__
-#define __LIBC_CTYPE_H__
+#ifndef __XEOS_LIB_C99_CTYPE_H__
+#define __XEOS_LIB_C99_CTYPE_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -87,4 +87,4 @@ int toupper( int c );
 }
 #endif
 
-#endif /* __LIBC_CTYPE_H__ */
+#endif /* __XEOS_LIB_C99_CTYPE_H__ */

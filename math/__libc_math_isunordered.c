@@ -63,8 +63,8 @@
 
 #include <math.h>
 
-int __libc_math_isunordered( long double x, long double y );
-int __libc_math_isunordered( long double x, long double y )
+int __xeos_lib_c99_math_isunordered( long double x, long double y );
+int __xeos_lib_c99_math_isunordered( long double x, long double y )
 {
     ( void )x;
     ( void )y;

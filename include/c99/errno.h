@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_ERRNO_H__
-#define __LIBC_ERRNO_H__
+#ifndef __XEOS_LIB_C99_ERRNO_H__
+#define __XEOS_LIB_C99_ERRNO_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -72,12 +72,12 @@ extern "C" {
 #define EILSEQ		0x02    /* Illegal byte sequence */
 #define	ERANGE		0x03    /* Result too large */
 
-#define errno ( __libc_errno )
+#define errno ( __xeos_lib_c99_errno )
 
-extern int __libc_errno;
+extern int __xeos_lib_c99_errno;
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __LIBC_ERRNO_H__ */
+#endif /* __XEOS_LIB_C99_ERRNO_H__ */

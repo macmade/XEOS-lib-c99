@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __LIBC_TIME_H__
-#define __LIBC_TIME_H__
+#ifndef __XEOS_LIB_C99_TIME_H__
+#define __XEOS_LIB_C99_TIME_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -90,4 +90,4 @@ time_t      time( time_t * timer );
 }
 #endif
 
-#endif /* __LIBC_TIME_H__ */
+#endif /* __XEOS_LIB_C99_TIME_H__ */
