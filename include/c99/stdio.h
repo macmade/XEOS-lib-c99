@@ -92,13 +92,13 @@ extern "C" {
 
 #define TMP_MAX                     0xFFFF
 
-#define stderr                      __xeos_lib_c99_stderr_p
-#define stdin                       __xeos_lib_c99_stdin_p
-#define stdout                      __xeos_lib_c99_stdout_p
+#define stderr                      __XEOS_Lib_C99_stderr_p
+#define stdin                       __XEOS_Lib_C99_stdin_p
+#define stdout                      __XEOS_Lib_C99_stdout_p
 
-extern FILE * __xeos_lib_c99_stderr_p;
-extern FILE * __xeos_lib_c99_stdin_p;
-extern FILE * __xeos_lib_c99_stdout_p;
+extern FILE * __XEOS_Lib_C99_stderr_p;
+extern FILE * __XEOS_Lib_C99_stdin_p;
+extern FILE * __XEOS_Lib_C99_stdout_p;
 
 int         remove( const char * filename );
 int         rename( const char * old, const char * new );

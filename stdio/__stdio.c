@@ -63,10 +63,10 @@
 
 #include <stdio.h>
 
-static FILE __xeos_lib_c99_stderr;
-static FILE __xeos_lib_c99_stdin;
-static FILE __xeos_lib_c99_stdout;
+static FILE __XEOS_Lib_C99_stderr;
+static FILE __XEOS_Lib_C99_stdin;
+static FILE __XEOS_Lib_C99_stdout;
 
-FILE * __xeos_lib_c99_stderr_p  = &__xeos_lib_c99_stderr;
-FILE * __xeos_lib_c99_stdin_p   = &__xeos_lib_c99_stdin;
-FILE * __xeos_lib_c99_stdout_p  = &__xeos_lib_c99_stdout;
+FILE * __XEOS_Lib_C99_stderr_p  = &__XEOS_Lib_C99_stderr;
+FILE * __XEOS_Lib_C99_stdin_p   = &__XEOS_Lib_C99_stdin;
+FILE * __XEOS_Lib_C99_stdout_p  = &__XEOS_Lib_C99_stdout;
