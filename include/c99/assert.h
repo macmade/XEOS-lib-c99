@@ -69,7 +69,7 @@
     
 #else
     
-    #define assert( _e_ )   ( _e_ ) ? ( ( void )0 ) : ( __xeos_lib_c99_assert( #_e_, __FILE__, __LINE__ ) )
+    #define assert( _e_ )   ( _e_ ) ? ( ( void )0 ) : ( __XEOS_Lib_C99_AssertFail( #_e_, __FILE__, __LINE__, __func__ ) )
     
 #endif
 
@@ -80,7 +80,7 @@
 extern "C" {
 #endif
 
-extern void __xeos_lib_c99_assert( char * expression, char * file, int line );
+extern void __XEOS_Lib_C99_AssertFail( char * expression, char * file, int line, char * func );
 
 #ifdef __cplusplus
 }

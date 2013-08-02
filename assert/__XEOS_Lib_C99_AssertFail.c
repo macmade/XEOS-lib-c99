@@ -62,11 +62,24 @@
 /* $Id$ */
 
 #include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void __xeos_lib_c99_assert( char * expression, char * file, int line );
-void __xeos_lib_c99_assert( char * expression, char * file, int line )
+void __XEOS_Lib_C99_AssertFail( char * expression, char * file, int line, char * func );
+void __XEOS_Lib_C99_AssertFail( char * expression, char * file, int line, char * func )
 {
-    ( void )expression;
-    ( void )file;
-    ( void )line;
+    fprintf
+    (
+        stderr,
+        "Assertion failed:  %s\n"
+        "Function:          %s\n"
+        "File:              %s\n"
+        "Line:              %i\n",
+        expression,
+        func,
+        file,
+        line
+    );
+    
+    abort();
 }
