@@ -62,54 +62,72 @@
 /* $Id$ */
 
 #include <string.h>
+#include <stdint.h>
 
+static void __memcpy_u8( uint8_t * s1, const uint8_t * s2, size_t n );
+static void __memcpy_u8( uint8_t * s1, const uint8_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+static void __memcpy_u16( uint16_t * s1, const uint16_t * s2, size_t n );
+static void __memcpy_u16( uint16_t * s1, const uint16_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+static void __memcpy_u32( uint32_t * s1, const uint32_t * s2, size_t n );
+static void __memcpy_u32( uint32_t * s1, const uint32_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+#ifdef __LP64__
+
+static void __memcpy_u64( uint64_t * s1, const uint64_t * s2, size_t n );
+static void __memcpy_u64( uint64_t * s1, const uint64_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+#endif
+
+void * memcpy( void * restrict s1, const void * restrict s2, size_t n );
 void * memcpy( void * restrict s1, const void * restrict s2, size_t n )
 {
-    register unsigned int * p1;
-    register unsigned int * p2;
-    register unsigned int * end;
+    #ifdef __LP64__
     
-    p1  = ( unsigned int * )s1;
-    p2  = ( unsigned int * )s2;
-    end = ( unsigned int * )( ( void * )( ( char * )p1 + ( n & ~( unsigned int )0x03 ) ) );
-    
-    while( p1 != end )
+    if( n % 8 == 0 )
     {
-        *( p1 )++ = *( p2 )++;
+        __memcpy_u64( s1, s2, n / 8 );
     }
+    else
     
-    switch( n & 0x03 )
+    #endif
+    
+    if( n % 4 == 0 )
     {
-        case 0:
-            
-            break;
-            
-        case 1:
-            
-            *( ( char * )p1 ) = *( ( char * )p2 );
-            
-            break;
-            
-        case 2:
-            
-            *( ( char * )p1 ) = *( ( char * )p2 );
-            p1                = ( unsigned int * )( ( void * )( ( char * )p1 + 1 ) );
-            p2                = ( unsigned int * )( ( void * )( ( char * )p2 + 1 ) );
-            *( ( char * )p1 ) = *( ( char * )p2 );
-            
-            break;
-            
-        case 3:
-            
-            *( ( char * )p1 ) = *( ( char * )p2 );
-            p1                = ( unsigned int * )( ( void * )( ( char * )p1 + 1 ) );
-            p2                = ( unsigned int * )( ( void * )( ( char * )p2 + 1 ) );
-            *( ( char * )p1 ) = *( ( char * )p2 );
-            p1                = ( unsigned int * )( ( void * )( ( char * )p1 + 1 ) );
-            p2                = ( unsigned int * )( ( void * )( ( char * )p2 + 1 ) );
-            *( ( char * )p1 ) = *( ( char * )p2 );
-            
-            break;
+        __memcpy_u32( s1, s2, n / 4 );
+    }
+    else if( n % 2 == 0 )
+    {
+        __memcpy_u16( s1, s2, n / 2 );
+    }
+    else
+    {
+        __memcpy_u8( s1, s2, n );
     }
     
     return s1;
