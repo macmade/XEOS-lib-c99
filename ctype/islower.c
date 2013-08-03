@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int islower( int c )
 {
-    return c > 0x60 && c < 0x7B;
+    return System_Locale_CType_IsLower( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isdigit( int c )
 {
-    return c > 0x2F && c < 0x3A;
+    return System_Locale_CType_IsDigit( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

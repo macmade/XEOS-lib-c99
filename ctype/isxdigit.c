@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isxdigit( int c )
 {
-    return ( c > 0x2F && c < 0x3A ) || ( c > 0x40 && c < 0x47 ) || ( c > 0x60 && c < 0x67 );
+    return System_Locale_CType_IsXDigit( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

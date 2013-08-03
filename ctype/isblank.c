@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isblank( int c )
 {
-    return c == ' ' || c == '\t';
+    return System_Locale_CType_IsBlank( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

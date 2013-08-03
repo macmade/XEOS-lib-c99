@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <locale.h>
+#include <system/locale.h>
 
 struct lconv * localeconv( void )
 {
-    return NULL;
+    return System_Locale_GetLConv( System_Locale_GetCLocale() );
 }

@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isalnum( int c )
 {
-    return isalpha( c ) || isdigit( c );
+    return System_Locale_CType_IsAlphaNumeric( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isprint( int c )
 {
-    return c > 0x1F && c < 0x7F;
+    return System_Locale_CType_IsPrint( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isupper( int c )
 {
-    return c > 0x40 && c < 0x5B;
+    return System_Locale_CType_IsUpper( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

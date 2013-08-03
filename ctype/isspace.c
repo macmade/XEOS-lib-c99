@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isspace( int c )
 {
-    return c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v';
+    return System_Locale_CType_IsSpace( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

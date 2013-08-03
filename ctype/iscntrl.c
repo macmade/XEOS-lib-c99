@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int iscntrl( int c )
 {
-    return c < 0x20 || c == 0x7f;
+    return System_Locale_CType_IsControl( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

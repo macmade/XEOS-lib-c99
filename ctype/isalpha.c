@@ -62,8 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int isalpha( int c )
 {
-    return isupper( c ) || islower( c );
+    return System_Locale_CType_IsAlpha( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }

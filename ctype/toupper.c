@@ -62,13 +62,9 @@
 /* $Id$ */
 
 #include <ctype.h>
+#include <system/locale.h>
 
 int toupper( int c )
 {
-    if( islower( c ) )
-    {
-        return c - 0x20;
-    }
-    
-    return c;
+    return System_Locale_CType_ToUpper( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
 }
