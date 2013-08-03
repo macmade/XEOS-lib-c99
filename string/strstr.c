@@ -71,7 +71,7 @@ char * strstr( const char * s1, const char * s2 )
     
     if( s2[ 0 ] == 0 )
     {
-        return s1;
+        return ( char * )s1;
     }
     
     p1 = s1;
