@@ -66,5 +66,5 @@
 
 int isxdigit( int c )
 {
-    return System_Locale_CType_IsXDigit( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
+    return System_Locale_CType_IsXDigit( System_Locale_GetCType( System_Locale_GetCurrentLocale() ), c );
 }

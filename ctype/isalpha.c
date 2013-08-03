@@ -66,5 +66,5 @@
 
 int isalpha( int c )
 {
-    return System_Locale_CType_IsAlpha( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
+    return System_Locale_CType_IsAlpha( System_Locale_GetCType( System_Locale_GetCurrentLocale() ), c );
 }

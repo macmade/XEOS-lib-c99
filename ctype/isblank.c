@@ -66,5 +66,5 @@
 
 int isblank( int c )
 {
-    return System_Locale_CType_IsBlank( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
+    return System_Locale_CType_IsBlank( System_Locale_GetCType( System_Locale_GetCurrentLocale() ), c );
 }

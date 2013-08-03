@@ -66,5 +66,5 @@
 
 struct lconv * localeconv( void )
 {
-    return System_Locale_GetLConv( System_Locale_GetCLocale() );
+    return System_Locale_GetLConv();
 }

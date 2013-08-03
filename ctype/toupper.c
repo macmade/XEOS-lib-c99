@@ -66,5 +66,5 @@
 
 int toupper( int c )
 {
-    return System_Locale_CType_ToUpper( System_Locale_GetCType( System_Locale_GetCLocale() ), c );
+    return System_Locale_CType_ToUpper( System_Locale_GetCType( System_Locale_GetCurrentLocale() ), c );
 }
