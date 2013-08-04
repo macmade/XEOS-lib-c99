@@ -65,29 +65,9 @@
 
 char * strncpy( char * restrict s1, const char * restrict s2, size_t n )
 {
-    char * p;
-    size_t i;
+    ( void )s1;
+    ( void )s2;
+    ( void )n;
     
-    p = s1;
-    i = 0;
-    
-    for( i = 0; i < n; i++ )
-    {
-        *( p ) = *( s2 );
-        
-        if( *( s2 ) == 0 )
-        {
-            break;
-        }
-        
-        p++;
-        s2++;
-    }
-    
-    for( ; i < n; i++ )
-    {
-        *( p )++ = 0;
-    }
-    
-    return s1;
+    return NULL;
 }

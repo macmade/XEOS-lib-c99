@@ -65,5 +65,8 @@
 
 int strcoll( const char * s1, const char * s2 )
 {
-    return strcmp( s1, s2 );
+    ( void )s1;
+    ( void )s2;
+    
+    return 0;
 }

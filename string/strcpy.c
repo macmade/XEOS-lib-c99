@@ -65,11 +65,8 @@
 
 char * strcpy( char * restrict s1, const char * restrict s2 )
 {
-    char * p;
+    ( void )s1;
+    ( void )s2;
     
-    p = s1;
-    
-    while( ( *( p )++ = *( s2 )++ ) != 0 );
-    
-    return s1;
+    return NULL;
 }

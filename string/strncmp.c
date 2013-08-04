@@ -65,31 +65,9 @@
 
 int strncmp( const char * s1, const char * s2, size_t n )
 {
-    const unsigned char * p1;
-    const unsigned char * p2;
-    size_t                i;
-    
-    p1 = ( const unsigned char * )s1;
-    p2 = ( const unsigned char * )s2;
-    i  = 0;
-    
-    while( i < n )
-    {
-        if( p1[ i ] < p2[ i ] )
-        {
-            return -1;
-        }
-        else if( p1[ i ] > p2[ i ] )
-        {
-            return 1;
-        }
-        else if( p1[ i ] == 0 )
-        {
-            return 0;
-        }
-        
-        i++;
-    }
+    ( void )s1;
+    ( void )s2;
+    ( void )n;
     
     return 0;
 }

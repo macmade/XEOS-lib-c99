@@ -65,35 +65,9 @@
 
 void * memmove( void * s1, const void * s2, size_t n )
 {
-    char       * p1;
-    const char * p2;
-    size_t       i;
+    ( void )s1;
+    ( void )s2;
+    ( void )n;
     
-    p1 = s1;
-    p2 = s2;
-    
-    if( p1 <= p2 )
-    {
-        for( i = 0; i < n; i++ )
-        {
-            *( p1 ) = *( p2 );
-            
-            p1++;
-            p2++;
-        }
-    }
-    else
-    {
-        if( n != 0 )
-        {
-            for( i = n - 1; i > 0; i-- )
-            {
-                *( p1 + i ) = *( p2 + i );
-            }
-            
-            *( p1 + i ) = *( p2 + i );
-        }
-    }
-    
-    return s1;
+    return NULL;
 }

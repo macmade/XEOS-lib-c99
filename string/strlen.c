@@ -65,14 +65,7 @@
 
 size_t strlen( const char * s )
 {
-    const char * p;
+    ( void )s;
     
-    p = s;
-    
-    while( *( p ) != 0 )
-    {
-        p++;
-    }
-    
-    return ( size_t )( p - s );
+    return 0;
 }

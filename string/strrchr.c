@@ -65,19 +65,8 @@
 
 char * strrchr( const char * s, int c )
 {
-    const char * p;
-    
-    p = s + strlen( s );
-    
-    while( p >= s )
-    {
-        if( *( p ) == ( char )c )
-        {
-            return ( char * )p;
-        }
-        
-        p--;
-    }
+    ( void )s;
+    ( void )c;
     
     return NULL;
 }
