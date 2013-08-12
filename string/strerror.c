@@ -62,9 +62,10 @@
 /* $Id$ */
 
 #include <string.h>
-#include <system/error.h>
 
 char * strerror( int errnum )
 {
-    return ( char * )System_Error_StringFromError( errnum );
+    ( void )errnum;
+    
+    return NULL;
 }

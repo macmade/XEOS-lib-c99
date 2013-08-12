@@ -65,9 +65,27 @@
 
 char * strncat( char * restrict s1, const char * restrict s2, size_t n )
 {
-    ( void )s1;
-    ( void )s2;
-    ( void )n;
+    char * p;
+    size_t i;
     
-    return NULL;
+    p = s1;
+    i = 0;
+    
+    while( *( p ) != 0 )
+    {
+        p++;
+    }
+    
+    while( ( *( s2 ) != 0 ) && ( i < n ) )
+    {
+        *( p ) = *( s2 );
+        
+        p++;
+        s2++;
+        i++;
+    }
+    
+    *( p ) = 0;
+    
+    return s1;
 }

@@ -65,9 +65,14 @@
 
 void * memset( void * s, int c, size_t n )
 {
-    ( void )s;
-    ( void )c;
-    ( void )n;
+    size_t i;
     
-    return NULL;
+    i = 0;
+    
+    for( i = 0; i < n; i++ )
+    {
+        *( ( char * )s + i ) = ( char )c;
+    }
+    
+    return s;
 }

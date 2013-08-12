@@ -65,8 +65,20 @@
 
 char * strcat( char * restrict s1, const char * restrict s2 )
 {
-    ( void )s1;
-    ( void )s2;
+    char * p;
     
-    return NULL;
+    p = s1;
+    
+    while( *( p ) != 0 )
+    {
+        p++;
+    }
+    
+    while( ( *( p ) = *( s2 ) ) != 0 )
+    {
+        p++;
+        s2++;
+    }
+    
+    return s1;
 }

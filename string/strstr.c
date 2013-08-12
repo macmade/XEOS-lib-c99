@@ -65,8 +65,39 @@
 
 char * strstr( const char * s1, const char * s2 )
 {
-    ( void )s1;
-    ( void )s2;
+    const char * p1;
+    const char * p2;
+    const char * p3;
+    
+    if( s2[ 0 ] == 0 )
+    {
+        return ( char * )s1;
+    }
+    
+    p1 = s1;
+    p3 = s2;
+    
+    while( *( p1 ) )
+    {
+        if( *( p1 ) == *( s2 ) )
+        {
+            p2 = p1;
+            p3 = s2;
+            
+            while( ( *( p3 ) != 0 ) && ( *( p2 ) == *( p3 ) ) )
+            {
+                p2++;
+                p3++;
+            }
+            
+            if( *( p3 ) == 0 )
+            {
+                return ( char * )p1;
+            }
+        }
+        
+        p1++;
+    }
     
     return NULL;
 }

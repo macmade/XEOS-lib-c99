@@ -62,12 +62,73 @@
 /* $Id$ */
 
 #include <string.h>
+#include <stdint.h>
 
+static void __memcpy_u8( uint8_t * s1, const uint8_t * s2, size_t n );
+static void __memcpy_u8( uint8_t * s1, const uint8_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+static void __memcpy_u16( uint16_t * s1, const uint16_t * s2, size_t n );
+static void __memcpy_u16( uint16_t * s1, const uint16_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+static void __memcpy_u32( uint32_t * s1, const uint32_t * s2, size_t n );
+static void __memcpy_u32( uint32_t * s1, const uint32_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+#ifdef __LP64__
+
+static void __memcpy_u64( uint64_t * s1, const uint64_t * s2, size_t n );
+static void __memcpy_u64( uint64_t * s1, const uint64_t * s2, size_t n )
+{
+    while( n-- )
+    {
+        *( s1++ ) = *( s2++ );
+    }
+}
+
+#endif
+
+void * memcpy( void * restrict s1, const void * restrict s2, size_t n );
 void * memcpy( void * restrict s1, const void * restrict s2, size_t n )
 {
-    ( void )s1;
-    ( void )s2;
-    ( void )n;
+    #ifdef __LP64__
     
-    return NULL;
+    if( n % 8 == 0 )
+    {
+        __memcpy_u64( s1, s2, n / 8 );
+    }
+    else
+    
+    #endif
+    
+    if( n % 4 == 0 )
+    {
+        __memcpy_u32( s1, s2, n / 4 );
+    }
+    else if( n % 2 == 0 )
+    {
+        __memcpy_u16( s1, s2, n / 2 );
+    }
+    else
+    {
+        __memcpy_u8( s1, s2, n );
+    }
+    
+    return s1;
 }
