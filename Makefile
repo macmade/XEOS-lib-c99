@@ -95,24 +95,26 @@ DIR_SRC_WCTYPE      = $(PATH_SRC_LIB_C99)wctype/
 #-------------------------------------------------------------------------------
 
 # Define the search paths for source files
-vpath %$(EXT_C) $(PATH_SRC_LIB_C99)
-vpath %$(EXT_C) $(DIR_SRC_ASSERT)
-vpath %$(EXT_C) $(DIR_SRC_COMPLEX)
-vpath %$(EXT_C) $(DIR_SRC_CTYPE)
-vpath %$(EXT_C) $(DIR_SRC_ERRNO)
-vpath %$(EXT_C) $(DIR_SRC_FENV)
-vpath %$(EXT_C) $(DIR_SRC_INTTYPES)
-vpath %$(EXT_C) $(DIR_SRC_LOCALE)
-vpath %$(EXT_C) $(DIR_SRC_MATH)
-vpath %$(EXT_C) $(DIR_SRC_SETJMP)
-vpath %$(EXT_C) $(DIR_SRC_SIGNAL)
-vpath %$(EXT_C) $(DIR_SRC_STDIO)
-vpath %$(EXT_C) $(DIR_SRC_STDLIB)
-vpath %$(EXT_C) $(DIR_SRC_STRING)
-vpath %$(EXT_C) $(DIR_SRC_TGMATH)
-vpath %$(EXT_C) $(DIR_SRC_TIME)
-vpath %$(EXT_C) $(DIR_SRC_WCHAR)
-vpath %$(EXT_C) $(DIR_SRC_WCTYPE)
+vpath %$(EXT_ASM_32)    $(DIR_SRC_STRING)
+vpath %$(EXT_ASM_64)    $(DIR_SRC_STRING)
+vpath %$(EXT_C)         $(PATH_SRC_LIB_C99)
+vpath %$(EXT_C)         $(DIR_SRC_ASSERT)
+vpath %$(EXT_C)         $(DIR_SRC_COMPLEX)
+vpath %$(EXT_C)         $(DIR_SRC_CTYPE)
+vpath %$(EXT_C)         $(DIR_SRC_ERRNO)
+vpath %$(EXT_C)         $(DIR_SRC_FENV)
+vpath %$(EXT_C)         $(DIR_SRC_INTTYPES)
+vpath %$(EXT_C)         $(DIR_SRC_LOCALE)
+vpath %$(EXT_C)         $(DIR_SRC_MATH)
+vpath %$(EXT_C)         $(DIR_SRC_SETJMP)
+vpath %$(EXT_C)         $(DIR_SRC_SIGNAL)
+vpath %$(EXT_C)         $(DIR_SRC_STDIO)
+vpath %$(EXT_C)         $(DIR_SRC_STDLIB)
+vpath %$(EXT_C)         $(DIR_SRC_STRING)
+vpath %$(EXT_C)         $(DIR_SRC_TGMATH)
+vpath %$(EXT_C)         $(DIR_SRC_TIME)
+vpath %$(EXT_C)         $(DIR_SRC_WCHAR)
+vpath %$(EXT_C)         $(DIR_SRC_WCTYPE)
 
 #-------------------------------------------------------------------------------
 # File suffixes
@@ -128,6 +130,7 @@ vpath %$(EXT_C) $(DIR_SRC_WCTYPE)
 # Files
 #-------------------------------------------------------------------------------
 
+_FILES_S_OBJ_BUILD_STRING   = $(call XEOS_FUNC_S_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_STRING))
 _FILES_C_OBJ_BUILD          = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(PATH_SRC_LIB_C99))
 _FILES_C_OBJ_BUILD_ASSERT   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_ASSERT))
 _FILES_C_OBJ_BUILD_COMPLEX  = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_COMPLEX))
@@ -160,7 +163,8 @@ _FILES_C_OBJ_BUILD_WCTYPE   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99
 #-------------------------------------------------------------------------------
 
 # Build the full project
-all:    $(_FILES_C_OBJ_BUILD)           \
+all:    $(_FILES_S_OBJ_BUILD_STRING)    \
+        $(_FILES_C_OBJ_BUILD)           \
         $(_FILES_C_OBJ_BUILD_ASSERT)    \
         $(_FILES_C_OBJ_BUILD_COMPLEX)   \
         $(_FILES_C_OBJ_BUILD_CTYPE)     \
