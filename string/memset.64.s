@@ -174,6 +174,14 @@ _memset64_sse2:
     ; Saves the original memory pointer, as we'll need to return it
     mov     r8,         rdi
     
+    ; Checks for a NULL memory pointer
+    test    rdi,        rdi
+    jz      .end
+    
+    ; Checks for a zero size
+    test    rdx,        rdx
+    jz      .end
+    
     ; memset() is often called to set a buffer to zero, so prepare xmm0
     ; for such a case
     pxor    xmm0,       xmm0
@@ -422,6 +430,14 @@ _memset64:
     
     ; Saves the original memory pointer, as we'll need to return it
     mov     r8,         rdi
+    
+    ; Checks for a NULL memory pointer
+    test    rdi,        rdi
+    jz      .end
+    
+    ; Checks for a zero size
+    test    rdx,        rdx
+    jz      .end
     
     ; Checks if bytes needs to be set to zero
     cmp     rsi,        0
