@@ -167,6 +167,10 @@ strlen:
 ;-------------------------------------------------------------------------------
 _strlen64_sse2:
     
+    ; Checks for a NULL string
+    test        rdi,    rdi
+    jz          .null
+    
     ; Stores the original string pointer in RSI
     mov         rsi,    rdi
     
@@ -234,6 +238,13 @@ _strlen64_sse2:
         sub         rax,    rsi
         
         ret
+    
+    .null:
+        
+        ; NULL string - Returns 0
+        xor         rax,    rax
+        
+        ret
             
 ;-------------------------------------------------------------------------------
 ; 64-bits optimized strlen() function
@@ -253,6 +264,10 @@ _strlen64_sse2:
 ;       None - System V AMD64 ABI (RBP, RBX, R12-R15 must be preserved)
 ;-------------------------------------------------------------------------------
 _strlen64:
+    
+    ; Checks for a NULL string
+    test        rdi,    rdi
+    jz          .null
     
     ; Stores the original string pointer in RAX
     mov         rax,    rdi
@@ -393,5 +408,12 @@ _strlen64:
         ; Substract the number of preceding bytes needed to align the string
         ; pointer to a 8-byte boundary
         sub         rax,    rsi
+        
+        ret
+    
+    .null:
+        
+        ; NULL string - Returns 0
+        xor         rax,    rax
         
         ret
