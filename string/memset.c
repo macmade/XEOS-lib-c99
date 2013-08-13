@@ -62,17 +62,92 @@
 /* $Id$ */
 
 #include <string.h>
+#include <stdint.h>
+
+/* i386 and x86-64 uses optimized assembly versions */
+#if !defined( __i386__ ) && !defined( __x86_64__ )
 
 void * memset( void * s, int c, size_t n )
 {
-    size_t i;
+    unsigned char * cp;
+    unsigned long * lp;
+    unsigned long   l;
     
-    i = 0;
-    
-    for( i = 0; i < n; i++ )
+    if( s == NULL || n == 0 )
     {
-        *( ( char * )s + i ) = ( char )c;
+        return s;
+    }
+    
+    cp = s;
+    c &= 0xFF;
+    
+    while( n > 0 && ( ( ( uintptr_t )cp & ( uintptr_t )-sizeof( unsigned long ) ) < ( uintptr_t )cp ) )
+    {
+        *( cp++ ) = ( unsigned char )c;
+        
+        n--;
+    }
+    
+    lp = ( unsigned long * )( ( void * )cp );
+    l  = ( unsigned long )c << 24
+       | ( unsigned long )c << 16
+       | ( unsigned long )c << 8
+       | ( unsigned long )c;
+    
+    #ifdef __LP64__
+    l = l << 32 | l;
+    #endif
+    
+    while( n > sizeof( unsigned long ) * 16 )
+    {
+        lp[  0 ] = l;
+        lp[  1 ] = l;
+        lp[  2 ] = l;
+        lp[  3 ] = l;
+        lp[  4 ] = l;
+        lp[  5 ] = l;
+        lp[  6 ] = l;
+        lp[  7 ] = l;
+        lp[  8 ] = l;
+        lp[  9 ] = l;
+        lp[ 10 ] = l;
+        lp[ 11 ] = l;
+        lp[ 12 ] = l;
+        lp[ 13 ] = l;
+        lp[ 14 ] = l;
+        lp[ 15 ] = l;
+        n        -= sizeof( unsigned long ) * 16;
+        lp       += 16;
+    }
+    
+    while( n > sizeof( unsigned long ) * 8 )
+    {
+        lp[ 0 ] = l;
+        lp[ 1 ] = l;
+        lp[ 2 ] = l;
+        lp[ 3 ] = l;
+        lp[ 4 ] = l;
+        lp[ 5 ] = l;
+        lp[ 6 ] = l;
+        lp[ 7 ] = l;
+        n        -= sizeof( unsigned long ) * 8;
+        lp       += 8;
+    }
+    
+    while( n > sizeof( unsigned long ) )
+    {
+        *( lp++ ) = l;
+        n        -= sizeof( unsigned long );
+    }
+    
+    cp = ( unsigned char * )( ( void * )lp );
+    
+    while( n-- )
+    {
+        *( cp++ ) = ( unsigned char )c;
     }
     
     return s;
 }
+
+#endif

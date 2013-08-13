@@ -62,17 +62,62 @@
 /* $Id$ */
 
 #include <string.h>
+#include <stdint.h>
+
+/* i386 and x86-64 uses optimized assembly versions */
+#if !defined( __i386__ ) && !defined( __x86_64__ )
 
 size_t strlen( const char * s )
 {
-    const char * p;
+    const char          * cp;
+    const unsigned long * lp;
+    unsigned long         l;
     
-    p = s;
+    cp = s;
     
-    while( *( p ) != 0 )
+    /* Reads one byte at a time until the pointer is aligned to a long */
+    while( ( ( ( uintptr_t )cp & ( uintptr_t )-sizeof( long ) ) < ( uintptr_t )cp ) )
     {
-        p++;
+        if( *( cp++ ) == 0 )
+        {
+            return ( size_t )( --cp - s );
+        }
     }
     
-    return ( size_t )( p - s );
+    /* Now that the pointer is aligned, we can read one long at a time */
+    lp = ( const unsigned long * )( ( void * )cp );
+    
+    while( 1 )
+    {
+        l = *( lp++ );
+        
+        /*
+         * Checks if a byte from "l" is zero - Thanks to Sean Eron Anderson:
+         * http://graphics.stanford.edu/~seander/bithacks.html
+         */
+        #ifdef __LP64__
+        if( !( ( l - 0x0101010101010101 ) & ( ~l & 0x8080808080808080 ) ) )
+        #else
+        if( !( ( l - 0x01010101 ) & ( ~l & 0x80808080 ) ) )
+        #endif
+        {
+            continue;
+        }
+        
+        if( ( l & 0x000000FF ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ); }
+        if( ( l & 0x0000FF00 ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ) + 1; }
+        if( ( l & 0x00FF0000 ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ) + 2; }
+        if( ( l & 0xFF000000 ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ) + 3; }
+        
+        #ifdef __LP64__
+        
+        if( ( l & 0x000000FF00000000 ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ) + 4; }
+        if( ( l & 0x0000FF0000000000 ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ) + 5; }
+        if( ( l & 0x00FF000000000000 ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ) + 6; }
+        if( ( l & 0xFF00000000000000 ) == 0 ) { return ( size_t )( ( uintptr_t )( --lp ) - ( uintptr_t )s ) + 7; }
+        
+        #endif
+    }
 }
+
+#endif

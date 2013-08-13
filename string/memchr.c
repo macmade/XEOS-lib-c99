@@ -62,25 +62,101 @@
 /* $Id$ */
 
 #include <string.h>
+#include <stdint.h>
+
+/* i386 and x86-64 uses optimized assembly versions */
+#if !defined( __i386__ ) && !defined( __x86_64__ )
 
 void * memchr( const void * s, int c, size_t n )
 {
-    const unsigned char * p;
-    size_t                i;
+    const unsigned char * cp;
+    const unsigned long * lp;
+    unsigned long         l;
+    unsigned long         mask;
+    unsigned long         magic;
     
-    p = ( const unsigned char * )s;
-    i = 0;
-    
-    while( i < n )
+    if( s == NULL || n == 0 )
     {
-        if( *( p ) == ( unsigned char )c )
+        return NULL;
+    }
+    
+    cp = s;
+    c &= 0xFF;
+    
+    while( n > 0 && ( ( ( uintptr_t )cp & ( uintptr_t )-sizeof( unsigned long ) ) < ( uintptr_t )cp ) )
+    {
+        if( *( cp++ ) == ( unsigned char )c )
         {
-            return ( void * )p;
+            return ( void * )( cp - 1 );
         }
         
-        p++;
-        i++;
+        n--;
+    }
+    
+    magic = ( ( ~0UL / 255 ) * ( unsigned char )c );
+    lp    = ( const unsigned long * )( ( void * )cp );
+    mask  = ( unsigned long )c << 24
+          | ( unsigned long )c << 16
+          | ( unsigned long )c << 8
+          | ( unsigned long )c;
+    
+    #ifdef __LP64__
+    mask = mask << 32 | mask;
+    #endif
+    
+    while( n > sizeof( unsigned long ) )
+    {
+        l  = *( lp++ );
+        n -= sizeof( unsigned long );
+        
+        /*
+         * Checks if a byte from "l" contains the character - Thanks to Sean
+         * Eron Anderson:
+         * http://graphics.stanford.edu/~seander/bithacks.html
+         */
+        {
+            unsigned long l2;
+            
+            l2 = l ^ magic;
+            
+            #ifdef __LP64__
+            if( !( ( l2 - 0x0101010101010101 ) & ( ~l2 & 0x8080808080808080 ) ) )
+            #else
+            if( !( ( l2 - 0x01010101 ) & ( ~l2 & 0x80808080 ) ) )
+            #endif
+            {
+                continue;
+            }
+        }
+        
+        l = l ^ mask;
+        
+        if( ( l & 0x000000FF ) == 0 ) { return ( void * )( ( const char * )lp -   sizeof( unsigned long ) ); }
+        if( ( l & 0x0000FF00 ) == 0 ) { return ( void * )( ( const char * )lp - ( sizeof( unsigned long ) - 1 ) ); }
+        if( ( l & 0x00FF0000 ) == 0 ) { return ( void * )( ( const char * )lp - ( sizeof( unsigned long ) - 2 ) ); }
+        if( ( l & 0xFF000000 ) == 0 ) { return ( void * )( ( const char * )lp - ( sizeof( unsigned long ) - 3 ) ); }
+        
+        #ifdef __LP64__
+        
+        if( ( l & 0x000000FF00000000 ) == 0 ) { return ( void * )( ( const char * )lp - ( sizeof( unsigned long ) - 4 ) ); }
+        if( ( l & 0x0000FF0000000000 ) == 0 ) { return ( void * )( ( const char * )lp - ( sizeof( unsigned long ) - 5 ) ); }
+        if( ( l & 0x00FF000000000000 ) == 0 ) { return ( void * )( ( const char * )lp - ( sizeof( unsigned long ) - 6 ) ); }
+        if( ( l & 0xFF00000000000000 ) == 0 ) { return ( void * )( ( const char * )lp - ( sizeof( unsigned long ) - 7 ) ); }
+        
+        #endif
+    }
+    
+    cp = ( unsigned char * )( ( void * )lp );
+    
+    while( n-- )
+    {
+        if( *( cp++ ) == ( unsigned char )c )
+        {
+            return ( void * )( cp - 1 );
+        }
     }
     
     return NULL;
 }
+
+#endif
