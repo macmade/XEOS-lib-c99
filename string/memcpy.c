@@ -64,71 +64,192 @@
 #include <string.h>
 #include <stdint.h>
 
-static void __memcpy_u8( uint8_t * s1, const uint8_t * s2, size_t n );
-static void __memcpy_u8( uint8_t * s1, const uint8_t * s2, size_t n )
-{
-    while( n-- )
-    {
-        *( s1++ ) = *( s2++ );
-    }
-}
+/* i386 and x86-64 uses optimized assembly versions */
+#if !defined( __i386__ ) && !defined( __x86_64__ )
 
-static void __memcpy_u16( uint16_t * s1, const uint16_t * s2, size_t n );
-static void __memcpy_u16( uint16_t * s1, const uint16_t * s2, size_t n )
-{
-    while( n-- )
-    {
-        *( s1++ ) = *( s2++ );
-    }
-}
-
-static void __memcpy_u32( uint32_t * s1, const uint32_t * s2, size_t n );
-static void __memcpy_u32( uint32_t * s1, const uint32_t * s2, size_t n )
-{
-    while( n-- )
-    {
-        *( s1++ ) = *( s2++ );
-    }
-}
-
-#ifdef __LP64__
-
-static void __memcpy_u64( uint64_t * s1, const uint64_t * s2, size_t n );
-static void __memcpy_u64( uint64_t * s1, const uint64_t * s2, size_t n )
-{
-    while( n-- )
-    {
-        *( s1++ ) = *( s2++ );
-    }
-}
-
-#endif
-
-void * memcpy( void * restrict s1, const void * restrict s2, size_t n );
 void * memcpy( void * restrict s1, const void * restrict s2, size_t n )
 {
-    #ifdef __LP64__
-    
-    if( n % 8 == 0 )
+    if( s1 == NULL || s2 == NULL || n == 0 )
     {
-        __memcpy_u64( s1, s2, n / 8 );
+        return s1;
     }
-    else
     
-    #endif
-    
-    if( n % 4 == 0 )
+    /* Note: a scope is used in order to comply with the 'restrict' keyword */
     {
-        __memcpy_u32( s1, s2, n / 4 );
-    }
-    else if( n % 2 == 0 )
-    {
-        __memcpy_u16( s1, s2, n / 2 );
-    }
-    else
-    {
-        __memcpy_u8( s1, s2, n );
+        unsigned char       * cp1;
+        const unsigned char * cp2;
+        unsigned long       * lp1;
+        const unsigned long * lp2;
+        
+        cp1 = s1;
+        cp2 = s2;
+        
+        /* Copy one byte at a time until the source is aligned on a long */
+        while( n > 0 && ( ( ( uintptr_t )cp2 & ( uintptr_t )-sizeof( unsigned long ) ) < ( uintptr_t )cp2 ) )
+        {
+            *( cp1++ ) = *( cp2++ );
+            
+            n--;
+        }
+            
+        lp1 = ( void * )cp1;
+        lp2 = ( void * )cp2;
+        
+        /* Checks if the destination is also aligned */
+        if( ( ( uintptr_t )lp1 & ( uintptr_t )-sizeof( unsigned long ) ) == ( uintptr_t )lp1 )
+        {
+            /* Loop unroll - Copy 16 bytes at a time */
+            while( n >= sizeof( unsigned long ) * 16 )
+            {
+                lp1[  0 ] = lp2[  0 ];
+                lp1[  1 ] = lp2[  1 ];
+                lp1[  2 ] = lp2[  2 ];
+                lp1[  3 ] = lp2[  3 ];
+                lp1[  4 ] = lp2[  4 ];
+                lp1[  5 ] = lp2[  5 ];
+                lp1[  6 ] = lp2[  6 ];
+                lp1[  7 ] = lp2[  7 ];
+                lp1[  8 ] = lp2[  8 ];
+                lp1[  9 ] = lp2[  9 ];
+                lp1[ 10 ] = lp2[ 10 ];
+                lp1[ 11 ] = lp2[ 11 ];
+                lp1[ 12 ] = lp2[ 12 ];
+                lp1[ 13 ] = lp2[ 13 ];
+                lp1[ 14 ] = lp2[ 14 ];
+                lp1[ 15 ] = lp2[ 15 ];
+                n        -= sizeof( unsigned long ) * 16;
+                lp1      += 16;
+                lp2      += 16;
+            }
+            
+            /* Loop unroll - Copy 8 bytes at a time */
+            while( n >= sizeof( unsigned long ) * 8 )
+            {
+                lp1[ 0 ] = lp2[ 0 ];
+                lp1[ 1 ] = lp2[ 1 ];
+                lp1[ 2 ] = lp2[ 2 ];
+                lp1[ 3 ] = lp2[ 3 ];
+                lp1[ 4 ] = lp2[ 4 ];
+                lp1[ 5 ] = lp2[ 5 ];
+                lp1[ 6 ] = lp2[ 6 ];
+                lp1[ 7 ] = lp2[ 7 ];
+                n       -= sizeof( unsigned long ) * 8;
+                lp1     += 8;
+                lp2     += 8;
+            }
+            
+            /* Copy one bytes at a time */
+            while( n >= sizeof( unsigned long ) )
+            {
+                *( lp1++ ) = *( lp2++ );
+                n         -= sizeof( unsigned long );
+            }
+            
+            cp1 = ( void * )lp1;
+            cp2 = ( void * )lp2;
+            
+            /* Copy remaining bytes one by one */
+            while( n-- )
+            {
+                *( cp1++ ) = *( cp2++ );
+            }
+        }
+        else
+        {
+            {
+                unsigned long l1[ 8 ];
+                unsigned long l2[ 8 ];
+                size_t        diff;
+                size_t        i;
+                size_t        ls;
+                size_t        rs;
+                
+                diff = 0;
+                
+                if( n >= sizeof( long ) * 9 )
+                {
+                    /* Number of bytes to write one by one until the destination is aligned on a long */
+                    diff = sizeof( unsigned long ) - ( ( uintptr_t )cp1 - ( ( uintptr_t )cp1 & ( uintptr_t )-sizeof( unsigned long ) ) );
+                    
+                    /* Computes left and right shifts now, to save processing time */
+                    ls = 8 * ( sizeof( long ) - diff );
+                    rs = 8 * diff;
+                    
+                    /* Reads a long, and saves the remaining bytes that we'll have to write */
+                    l1[ 0 ] = *( lp2++ );
+                    l2[ 0 ] = l1[ 0 ] >> ( diff * 8 );
+                    
+                    /* Writes bytes one by one until the destination is aligned on a long */
+                    for( i = 0; i < diff; i++ )
+                    {
+                        *( cp1++ ) = ( unsigned char )( ( l1[ 0 ] >> ( i * 8 ) ) & 0xFF );
+                    }
+                    
+                    n  -= sizeof( long );
+                    lp1 = ( void * )cp1;
+                    
+                    /* Writes 8 longs into the aligned destination, saving the remaining bytes */
+                    while( n > sizeof( long ) * 8 )
+                    {
+                        l1[ 0 ]  = lp2[ 0 ];
+                        l1[ 1 ]  = lp2[ 1 ];
+                        l1[ 2 ]  = lp2[ 2 ];
+                        l1[ 3 ]  = lp2[ 3 ];
+                        l1[ 4 ]  = lp2[ 4 ];
+                        l1[ 5 ]  = lp2[ 5 ];
+                        l1[ 6 ]  = lp2[ 6 ];
+                        l1[ 7 ]  = lp2[ 7 ];
+                        
+                        l2[ 1 ]  = l1[ 0 ] >> rs;
+                        l2[ 2 ]  = l1[ 1 ] >> rs;
+                        l2[ 3 ]  = l1[ 2 ] >> rs;
+                        l2[ 4 ]  = l1[ 3 ] >> rs;
+                        l2[ 5 ]  = l1[ 4 ] >> rs;
+                        l2[ 6 ]  = l1[ 5 ] >> rs;
+                        l2[ 7 ]  = l1[ 6 ] >> rs;
+                        l2[ 0 ]  = l1[ 7 ] >> rs;
+                        
+                        lp1[ 0 ] = ( l1[ 0 ] << ls ) | l2[ 0 ];
+                        lp1[ 1 ] = ( l1[ 1 ] << ls ) | l2[ 1 ];
+                        lp1[ 2 ] = ( l1[ 2 ] << ls ) | l2[ 2 ];
+                        lp1[ 3 ] = ( l1[ 3 ] << ls ) | l2[ 3 ];
+                        lp1[ 4 ] = ( l1[ 4 ] << ls ) | l2[ 4 ];
+                        lp1[ 5 ] = ( l1[ 5 ] << ls ) | l2[ 5 ];
+                        lp1[ 6 ] = ( l1[ 6 ] << ls ) | l2[ 6 ];
+                        lp1[ 7 ] = ( l1[ 7 ] << ls ) | l2[ 7 ];
+                        
+                        lp1 += 8;
+                        lp2 += 8;
+                        
+                        n -= sizeof( long ) * 8;
+                    }
+                }
+                
+                cp1 = ( void * )lp1;
+                cp2 = ( void * )lp2;
+                
+                /* Writes the remaining bytes, due to the alignment */
+                if( diff != 0 )
+                {
+                    diff = sizeof( long ) - diff;
+                    
+                    while( diff-- )
+                    {
+                        *( cp1++ ) = ( unsigned char )( l2[ 0 ] & 0xFF );
+                        l2[ 0 ]    = l2[ 0 ] >> 8;
+                    }
+                }
+                
+                /* Writes the remaining bytes */
+                while( n-- )
+                {
+                    *( cp1++ ) = *( cp2++ );
+                }
+            }
+        }
     }
     
     return s1;
 }
+
+#endif
