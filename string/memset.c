@@ -81,6 +81,7 @@ void * memset( void * s, int c, size_t n )
     cp = s;
     c &= 0xFF;
     
+    /* Copies one byte at a time until the pointer is aligned to a long */
     while( n > 0 && ( ( ( uintptr_t )cp & ( uintptr_t )-sizeof( unsigned long ) ) < ( uintptr_t )cp ) )
     {
         *( cp++ ) = ( unsigned char )c;
@@ -98,6 +99,7 @@ void * memset( void * s, int c, size_t n )
     l = l << 32 | l;
     #endif
     
+    /* Loop unroll - writes 16 longs at a time */
     while( n > sizeof( unsigned long ) * 16 )
     {
         lp[  0 ] = l;
@@ -120,6 +122,7 @@ void * memset( void * s, int c, size_t n )
         lp       += 16;
     }
     
+    /* Loop unroll - writes 8 longs at a time */
     while( n > sizeof( unsigned long ) * 8 )
     {
         lp[ 0 ] = l;
@@ -134,6 +137,7 @@ void * memset( void * s, int c, size_t n )
         lp       += 8;
     }
     
+    /* Writes a long at a time */
     while( n > sizeof( unsigned long ) )
     {
         *( lp++ ) = l;
@@ -142,6 +146,7 @@ void * memset( void * s, int c, size_t n )
     
     cp = ( unsigned char * )( ( void * )lp );
     
+    /* Writes remaining bytes one by one */
     while( n-- )
     {
         *( cp++ ) = ( unsigned char )c;
