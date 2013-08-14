@@ -187,8 +187,8 @@ _memset64_sse2:
     pxor    xmm0,       xmm0
     
     ; Checks if bytes needs to be set to zero
-    cmp     rsi,        0
-    je      .padded
+    test    rsi,        rsi
+    jz      .padded
     
     .pad:
         
@@ -218,8 +218,8 @@ _memset64_sse2:
         sub     rax,        rdi
         
         ; Checks if the pointer is already aligned
-        cmp     rax,        0
-        je      .aligned
+        test    rax,        rax
+        jz      .aligned
         
         ; If not, computes the number of bytes to be written until we are
         ; aligned on the next 16-byte boundary
@@ -238,8 +238,8 @@ _memset64_sse2:
     .notaligned_loop:
         
         ; Checks if we have bytes to write
-        cmp     rdx,        0
-        je      .end
+        test    rdx,        rdx
+        jz      .end
         
         ; Writes a byte into the memory buffer
         mov     [ rdi ],    al
@@ -254,8 +254,8 @@ _memset64_sse2:
         
         ; Checks if we are aligned to a 16-byte boundary. If so, the SSE
         ; instructions can be safely used
-        cmp     rcx,        0
-        je      .aligned
+        test    rcx,        rcx
+        jz      .aligned
         jmp     .notaligned_loop
         
     .aligned:
@@ -318,8 +318,8 @@ _memset64_sse2:
         jge     .aligned_16
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
@@ -349,8 +349,8 @@ _memset64_sse2:
         jge     .aligned_16
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
@@ -374,8 +374,8 @@ _memset64_sse2:
         jge     .aligned_16
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
@@ -394,8 +394,8 @@ _memset64_sse2:
         jge     .aligned
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
@@ -440,8 +440,8 @@ _memset64:
     jz      .end
     
     ; Checks if bytes needs to be set to zero
-    cmp     rsi,        0
-    je      .padded
+    test    rsi,        rsi
+    jz      .padded
     
     .pad:
         
@@ -468,8 +468,8 @@ _memset64:
         sub     rax,        rdi
         
         ; Checks if the pointer is already aligned
-        cmp     rax,        0
-        je      .aligned
+        test    rax,        rax
+        jz      .aligned
         
         ; If not, computes the number of bytes to be written until we are
         ; aligned on the next 8-byte boundary
@@ -488,8 +488,8 @@ _memset64:
     .notaligned_loop:
         
         ; Checks if we have bytes to write
-        cmp     rdx,        0
-        je      .end
+        test    rdx,        rdx
+        jz      .end
         
         ; Writes a byte into the memory buffer
         mov     [ rdi ],    al
@@ -504,8 +504,8 @@ _memset64:
         
         ; Checks if we are aligned to a 8-byte boundary. If so, we'll be able
         ; to write more than one byte at a time
-        cmp     rcx,        0
-        je      .aligned
+        test    rcx,        rcx
+        jz      .aligned
         jmp     .notaligned_loop
         
     .aligned:
@@ -575,8 +575,8 @@ _memset64:
         jge     .aligned_16
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
@@ -610,8 +610,8 @@ _memset64:
         jge     .aligned_16
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
@@ -637,8 +637,8 @@ _memset64:
         jge     .aligned_16
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
@@ -658,8 +658,8 @@ _memset64:
         jge     .aligned
         
         ; Checks if we're done writing bytes
-        cmp     rdx,            0
-        je      .end
+        test    rdx,            rdx
+        jz      .end
         
         ; If we still have byte to write, writes them one by one
         jmp     .aligned_end
