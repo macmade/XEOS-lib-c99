@@ -65,7 +65,7 @@ include ../../../Makefile-Config.mk
 # Display
 #-------------------------------------------------------------------------------
 
-PROMPT              := "    ["$(COLOR_GREEN)" XEOS "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" SRC  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" LIB  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" LIBC "$(COLOR_NONE)"]> *** "
+PROMPT              := "    ["$(COLOR_GREEN)" XEOS "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" SRC  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" LIB  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" C99  "$(COLOR_NONE)"]> *** "
 
 #-------------------------------------------------------------------------------
 # Paths
@@ -203,5 +203,5 @@ clean:
 	@$(PRINT) $(PROMPT)"Cleaning all build files"
 	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_LIB_OBJ_C99)*
 	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_LIB_OBJ_C99)*
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_LIB_BIN)libc.*
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_LIB_BIN)libc.*
+	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_LIB_BIN)libc99.*
+	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_LIB_BIN)libc99.*
