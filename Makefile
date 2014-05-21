@@ -65,143 +65,57 @@ include ../../../Makefile-Config.mk
 # Display
 #-------------------------------------------------------------------------------
 
-PROMPT              := "    ["$(COLOR_GREEN)" XEOS "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" SRC  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" LIB  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" C99  "$(COLOR_NONE)"]> *** "
-
-#-------------------------------------------------------------------------------
-# Paths
-#-------------------------------------------------------------------------------
-
-DIR_SRC_ASSERT      = $(PATH_SRC_LIB_C99)assert/
-DIR_SRC_COMPLEX     = $(PATH_SRC_LIB_C99)complex/
-DIR_SRC_CTYPE       = $(PATH_SRC_LIB_C99)ctype/
-DIR_SRC_ERRNO       = $(PATH_SRC_LIB_C99)errno/
-DIR_SRC_FENV        = $(PATH_SRC_LIB_C99)fenv/
-DIR_SRC_INTTYPES    = $(PATH_SRC_LIB_C99)inttypes/
-DIR_SRC_LOCALE      = $(PATH_SRC_LIB_C99)locale/
-DIR_SRC_MATH        = $(PATH_SRC_LIB_C99)math/
-DIR_SRC_SETJMP      = $(PATH_SRC_LIB_C99)setjmp/
-DIR_SRC_SIGNAL      = $(PATH_SRC_LIB_C99)signal/
-DIR_SRC_STDARG      = $(PATH_SRC_LIB_C99)stdarg/
-DIR_SRC_STDIO       = $(PATH_SRC_LIB_C99)stdio/
-DIR_SRC_STDLIB      = $(PATH_SRC_LIB_C99)stdlib/
-DIR_SRC_STRING      = $(PATH_SRC_LIB_C99)string/
-DIR_SRC_TGMATH      = $(PATH_SRC_LIB_C99)tgmath/
-DIR_SRC_TIME        = $(PATH_SRC_LIB_C99)time/
-DIR_SRC_WCHAR       = $(PATH_SRC_LIB_C99)wchar/
-DIR_SRC_WCTYPE      = $(PATH_SRC_LIB_C99)wctype/
-
-#-------------------------------------------------------------------------------
-# Search paths
-#-------------------------------------------------------------------------------
-
-# Define the search paths for source files
-vpath %$(EXT_ASM_32)    $(DIR_SRC_STRING)
-vpath %$(EXT_ASM_64)    $(DIR_SRC_STRING)
-vpath %$(EXT_C)         $(PATH_SRC_LIB_C99)
-vpath %$(EXT_C)         $(DIR_SRC_ASSERT)
-vpath %$(EXT_C)         $(DIR_SRC_COMPLEX)
-vpath %$(EXT_C)         $(DIR_SRC_CTYPE)
-vpath %$(EXT_C)         $(DIR_SRC_ERRNO)
-vpath %$(EXT_C)         $(DIR_SRC_FENV)
-vpath %$(EXT_C)         $(DIR_SRC_INTTYPES)
-vpath %$(EXT_C)         $(DIR_SRC_LOCALE)
-vpath %$(EXT_C)         $(DIR_SRC_MATH)
-vpath %$(EXT_C)         $(DIR_SRC_SETJMP)
-vpath %$(EXT_C)         $(DIR_SRC_SIGNAL)
-vpath %$(EXT_C)         $(DIR_SRC_STDIO)
-vpath %$(EXT_C)         $(DIR_SRC_STDLIB)
-vpath %$(EXT_C)         $(DIR_SRC_STRING)
-vpath %$(EXT_C)         $(DIR_SRC_TGMATH)
-vpath %$(EXT_C)         $(DIR_SRC_TIME)
-vpath %$(EXT_C)         $(DIR_SRC_WCHAR)
-vpath %$(EXT_C)         $(DIR_SRC_WCTYPE)
-
-#-------------------------------------------------------------------------------
-# File suffixes
-#-------------------------------------------------------------------------------
-
-# Adds the suffixes used in this file
-.SUFFIXES:  $(EXT_C)    \
-            $(EXT_H)    \
-            $(EXT_OBJ)  \
-            $(EXT_BIN)
+PROMPT  := "    ["$(COLOR_GREEN)" XEOS "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" SRC  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" LIB  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" C99  "$(COLOR_NONE)"]> *** "
 
 #-------------------------------------------------------------------------------
 # Files
 #-------------------------------------------------------------------------------
 
-_FILES_S_OBJ_BUILD_STRING   = $(call XEOS_FUNC_S_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_STRING))
-_FILES_C_OBJ_BUILD          = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(PATH_SRC_LIB_C99))
-_FILES_C_OBJ_BUILD_ASSERT   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_ASSERT))
-_FILES_C_OBJ_BUILD_COMPLEX  = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_COMPLEX))
-_FILES_C_OBJ_BUILD_CTYPE    = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_CTYPE))
-_FILES_C_OBJ_BUILD_ERRNO    = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_ERRNO))
-_FILES_C_OBJ_BUILD_FENV     = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_FENV))
-_FILES_C_OBJ_BUILD_INTTYPES = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_INTTYPES))
-_FILES_C_OBJ_BUILD_LOCALE   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_LOCALE))
-_FILES_C_OBJ_BUILD_MATH     = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_MATH))
-_FILES_C_OBJ_BUILD_SETJMP   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_SETJMP))
-_FILES_C_OBJ_BUILD_SIGNAL   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_SIGNAL))
-_FILES_C_OBJ_BUILD_STDIO    = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_STDIO))
-_FILES_C_OBJ_BUILD_STDLIB   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_STDLIB))
-_FILES_C_OBJ_BUILD_STRING   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_STRING))
-_FILES_C_OBJ_BUILD_TGMATH   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_TGMATH))
-_FILES_C_OBJ_BUILD_TIME     = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_TIME))
-_FILES_C_OBJ_BUILD_WCHAR    = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_WCHAR))
-_FILES_C_OBJ_BUILD_WCTYPE   = $(call XEOS_FUNC_C_OBJ,$(PATH_BUILD_32_LIB_OBJ_C99),$(DIR_SRC_WCTYPE))
+_FILES  = $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99))
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)assert/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)ctype/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)errno/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)fenv/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)locale/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)math/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)setjmp/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)signal/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)stdio/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)stdlib/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)string/)
+_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)time/)
 
 #-------------------------------------------------------------------------------
 # Built-in targets
 #-------------------------------------------------------------------------------
 
 # Declaration for phony targets, to avoid problems with local files
-.PHONY: all     \
-        clean
+.PHONY: all clean
 
 #-------------------------------------------------------------------------------
 # Phony targets
 #-------------------------------------------------------------------------------
 
 # Build the full project
-all:    $(_FILES_S_OBJ_BUILD_STRING)    \
-        $(_FILES_C_OBJ_BUILD)           \
-        $(_FILES_C_OBJ_BUILD_ASSERT)    \
-        $(_FILES_C_OBJ_BUILD_COMPLEX)   \
-        $(_FILES_C_OBJ_BUILD_CTYPE)     \
-        $(_FILES_C_OBJ_BUILD_ERRNO)     \
-        $(_FILES_C_OBJ_BUILD_FENV)      \
-        $(_FILES_C_OBJ_BUILD_INTTYPES)  \
-        $(_FILES_C_OBJ_BUILD_LOCALE)    \
-        $(_FILES_C_OBJ_BUILD_MATH)      \
-        $(_FILES_C_OBJ_BUILD_SETJMP)    \
-        $(_FILES_C_OBJ_BUILD_SIGNAL)    \
-        $(_FILES_C_OBJ_BUILD_STDIO)     \
-        $(_FILES_C_OBJ_BUILD_STDLIB)    \
-        $(_FILES_C_OBJ_BUILD_STRING)    \
-        $(_FILES_C_OBJ_BUILD_TGMATH)    \
-        $(_FILES_C_OBJ_BUILD_TIME)      \
-        $(_FILES_C_OBJ_BUILD_WCHAR)     \
-        $(_FILES_C_OBJ_BUILD_WCTYPE)
+all: $(_FILES)
 	
 	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99.a"$(COLOR_NONE)
-	@$(AR_32) $(ARGS_AR_32) $(PATH_BUILD_32_LIB_BIN)libc99.a $(PATH_BUILD_32_LIB_OBJ_C99)*$(EXT_OBJ)
-	@$(RANLIB_32) $(PATH_BUILD_32_LIB_BIN)libc99.a
+	@$(call XEOS_FUNC_LIB_STATIC_32,libc99,$^)
 	
 	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99.a"$(COLOR_NONE)
-	@$(AR_64) $(ARGS_AR_64) $(PATH_BUILD_64_LIB_BIN)libc99.a $(PATH_BUILD_64_LIB_OBJ_C99)*$(EXT_OBJ)
-	@$(RANLIB_64) $(PATH_BUILD_64_LIB_BIN)libc99.a
+	@$(call XEOS_FUNC_LIB_STATIC_64,libc99,$^)
 	
 	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99.so"$(COLOR_NONE)
-	@$(LD_32) $(ARGS_LD_SHARED_32) -o $(PATH_BUILD_32_LIB_BIN)libc99.so $(PATH_BUILD_32_LIB_OBJ_C99)*$(EXT_OBJ_PIC)
+	@$(call XEOS_FUNC_LIB_DYNAMIC_32,libc99,$^)
 	
 	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99.so"$(COLOR_NONE)
-	@$(LD_64) $(ARGS_LD_SHARED_64) -o $(PATH_BUILD_64_LIB_BIN)libc99.so $(PATH_BUILD_64_LIB_OBJ_C99)*$(EXT_OBJ_PIC)
-	
+	@$(call XEOS_FUNC_LIB_DYNAMIC_64,libc99,$^)
+
 # Cleans the build files
 clean:
 	
 	@$(PRINT) $(PROMPT)"Cleaning all build files"
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_LIB_OBJ_C99)*
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_LIB_OBJ_C99)*
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_LIB_BIN)libc99.*
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_LIB_BIN)libc99.*
+	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_OBJ)$(subst $(PATH_SRC),,$(PATH_SRC_LIB_C99))
+	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_OBJ)$(subst $(PATH_SRC),,$(PATH_SRC_LIB_C99))
+	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_BIN)libc99.*
+	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_BIN)libc99.*
