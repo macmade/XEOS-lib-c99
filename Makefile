@@ -83,6 +83,7 @@ _FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)signal/)
 _FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)stdio/)
 _FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)stdlib/)
 _FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)string/)
+_FILES += $(call XEOS_FUNC_S_OBJ,$(PATH_SRC_LIB_C99)string/)
 _FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)time/)
 
 #-------------------------------------------------------------------------------
@@ -99,16 +100,16 @@ _FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)time/)
 # Build the full project
 all: $(_FILES)
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99.a"$(COLOR_NONE)
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_STATIC)"$(COLOR_NONE)
 	@$(call XEOS_FUNC_LIB_STATIC_32,libc99,$^)
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99.a"$(COLOR_NONE)
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_STATIC)"$(COLOR_NONE)
 	@$(call XEOS_FUNC_LIB_STATIC_64,libc99,$^)
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99.so"$(COLOR_NONE)
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_DYNAMIC)"$(COLOR_NONE)
 	@$(call XEOS_FUNC_LIB_DYNAMIC_32,libc99,$^)
 	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99.so"$(COLOR_NONE)
+	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_DYNAMIC)"$(COLOR_NONE)
 	@$(call XEOS_FUNC_LIB_DYNAMIC_64,libc99,$^)
 
 # Cleans the build files
