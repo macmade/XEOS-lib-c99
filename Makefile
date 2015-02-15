@@ -59,64 +59,22 @@
 
 # $Id$
 
-include ../../../Makefile-Config.mk
+include make/Config.mk
 
-#-------------------------------------------------------------------------------
-# Display
-#-------------------------------------------------------------------------------
+PACKAGE := libc99
+PROMPT  := XEOS SOURCE LIB C99
+FILES   := $(call XEOS_FUNC_C_FILES,$(DIR_SRC)assert/) \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)ctype/)  \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)errno/)  \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)fenv/)   \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)locale/) \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)math/)   \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)setjmp/) \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)signal/) \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)stdio/)  \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)stdlib/) \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)string/) \
+           $(call XEOS_FUNC_S_FILES,$(DIR_SRC)string/) \
+           $(call XEOS_FUNC_C_FILES,$(DIR_SRC)time/)
 
-PROMPT  := "    ["$(COLOR_GREEN)" XEOS "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" SRC  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" LIB  "$(COLOR_NONE)"]> ["$(COLOR_GREEN)" C99  "$(COLOR_NONE)"]> *** "
-
-#-------------------------------------------------------------------------------
-# Files
-#-------------------------------------------------------------------------------
-
-_FILES  = $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99))
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)assert/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)ctype/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)errno/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)fenv/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)locale/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)math/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)setjmp/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)signal/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)stdio/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)stdlib/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)string/)
-_FILES += $(call XEOS_FUNC_S_OBJ,$(PATH_SRC_LIB_C99)string/)
-_FILES += $(call XEOS_FUNC_C_OBJ,$(PATH_SRC_LIB_C99)time/)
-
-#-------------------------------------------------------------------------------
-# Built-in targets
-#-------------------------------------------------------------------------------
-
-# Declaration for phony targets, to avoid problems with local files
-.PHONY: all clean
-
-#-------------------------------------------------------------------------------
-# Phony targets
-#-------------------------------------------------------------------------------
-
-# Build the full project
-all: $(_FILES)
-	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_STATIC)"$(COLOR_NONE)
-	@$(call XEOS_FUNC_LIB_STATIC_32,libc99,$^)
-	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the library archive"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_STATIC)"$(COLOR_NONE)
-	@$(call XEOS_FUNC_LIB_STATIC_64,libc99,$^)
-	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 32 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_DYNAMIC)"$(COLOR_NONE)
-	@$(call XEOS_FUNC_LIB_DYNAMIC_32,libc99,$^)
-	
-	@$(PRINT) $(PROMPT)$(COLOR_CYAN)"Generating the dynamic library"$(COLOR_NONE)" [ 64 bits ]: "$(COLOR_GRAY)"libc99$(EXT_LIB_DYNAMIC)"$(COLOR_NONE)
-	@$(call XEOS_FUNC_LIB_DYNAMIC_64,libc99,$^)
-
-# Cleans the build files
-clean:
-	
-	@$(PRINT) $(PROMPT)"Cleaning all build files"
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_OBJ)$(subst $(PATH_SRC),,$(PATH_SRC_LIB_C99))
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_OBJ)$(subst $(PATH_SRC),,$(PATH_SRC_LIB_C99))
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_32_BIN)libc99.*
-	@$(RM) $(ARGS_RM) $(PATH_BUILD_64_BIN)libc99.*
+include make/Targets.mk
