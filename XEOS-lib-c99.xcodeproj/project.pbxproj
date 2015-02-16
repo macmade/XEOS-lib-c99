@@ -898,7 +898,7 @@
 			dependencies = (
 			);
 			name = "XEOS-lib-c99";
-			passBuildSettingsInEnvironment = 0;
+			passBuildSettingsInEnvironment = 1;
 			productName = "LIB-PTHREAD";
 		};
 /* End PBXLegacyTarget section */
