@@ -1,7 +1,7 @@
 XEOS / lib / c99
 ================
 
-[![Build Status](https://img.shields.io/travis/macmade/XEOS.svg?branch=master&style=flat)](https://travis-ci.org/macmade/XEOS)
+[![Build Status](https://img.shields.io/travis/macmade/XEOS-lib-c99.svg?branch=master&style=flat)](https://travis-ci.org/macmade/XEOS-lib-c99)
 [![Issues](http://img.shields.io/github/issues/macmade/XEOS-lib-c99.svg?style=flat)](https://github.com/macmade/XEOS-lib-c99/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)
 ![License](https://img.shields.io/badge/license-xeos-brightgreen.svg?style=flat)
