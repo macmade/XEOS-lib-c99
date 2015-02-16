@@ -61,8 +61,8 @@
 
 include make/Config.mk
 
-PACKAGE := libc99
 PROMPT  := XEOS SOURCE LIB C99
+DEPS    := XEOS-lib-system
 FILES   := $(call XEOS_FUNC_C_FILES,$(DIR_SRC)assert/) \
            $(call XEOS_FUNC_C_FILES,$(DIR_SRC)ctype/)  \
            $(call XEOS_FUNC_C_FILES,$(DIR_SRC)errno/)  \
