@@ -60,6 +60,7 @@
 # $Id$
 
 include make/Config.mk
+include make/Targets.mk
 
 PROMPT  := XEOS SOURCE LIB C99
 DEPS    := XEOS-lib-system
@@ -77,4 +78,10 @@ FILES   := $(call XEOS_FUNC_C_FILES,$(DIR_SRC)assert/) \
            $(call XEOS_FUNC_S_FILES,$(DIR_SRC)string/) \
            $(call XEOS_FUNC_C_FILES,$(DIR_SRC)time/)
 
-include make/Targets.mk
+all: obj-build
+	
+	@:
+	
+clean: obj-clean
+	
+	@:
