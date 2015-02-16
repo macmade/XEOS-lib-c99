@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <time.h>
+#include <c99/time.h>
 
 clock_t clock( void )
 {

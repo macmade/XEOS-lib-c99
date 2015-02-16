@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <math.h>
+#include <c99/math.h>
 
 float remainderf( float x, float y )
 {

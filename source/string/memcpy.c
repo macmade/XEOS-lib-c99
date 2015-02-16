@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#include <string.h>
-#include <stdint.h>
+#include <c99/string.h>
+#include <c99/stdint.h>
 
 /* i386 and x86-64 uses optimized assembly versions */
 #if !defined( __i386__ ) && !defined( __x86_64__ )

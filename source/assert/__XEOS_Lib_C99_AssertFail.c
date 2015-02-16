@@ -61,9 +61,9 @@
 
 /* $Id$ */
 
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <c99/assert.h>
+#include <c99/stdio.h>
+#include <c99/stdlib.h>
 
 void __XEOS_Lib_C99_AssertFail( char * expression, char * file, int line, char * func );
 void __XEOS_Lib_C99_AssertFail( char * expression, char * file, int line, char * func )

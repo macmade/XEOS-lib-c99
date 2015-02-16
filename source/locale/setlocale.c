@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <locale.h>
+#include <c99/locale.h>
 #include <system/locale.h>
 
 char * setlocale( int category, const char * locale )

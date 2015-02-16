@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <math.h>
+#include <c99/math.h>
 
 long double atan2l( long double y, long double x )
 {

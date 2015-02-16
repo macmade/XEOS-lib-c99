@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdlib.h>
+#include <c99/stdlib.h>
 
 long long int atoll( const char * nptr )
 {

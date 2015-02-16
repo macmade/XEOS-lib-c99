@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <time.h>
+#include <c99/time.h>
 
 struct tm * gmtime( const time_t * timer )
 {

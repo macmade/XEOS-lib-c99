@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdlib.h>
+#include <c99/stdlib.h>
 
 void srand( unsigned int seed )
 {

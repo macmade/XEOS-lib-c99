@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <math.h>
+#include <c99/math.h>
 
 double asinh( double x )
 {

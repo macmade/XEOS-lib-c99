@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <ctype.h>
+#include <c99/ctype.h>
 #include <system/locale.h>
 
 int isgraph( int c )

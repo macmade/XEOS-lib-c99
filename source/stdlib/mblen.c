@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdlib.h>
+#include <c99/stdlib.h>
 
 int mblen( const char * s, size_t n )
 {

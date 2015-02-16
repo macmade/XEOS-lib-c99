@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdlib.h>
+#include <c99/stdlib.h>
 
 size_t wcstombs( char * restrict s, const wchar_t * restrict pwcs, size_t n )
 {

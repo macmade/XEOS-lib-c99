@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <math.h>
+#include <c99/math.h>
 
 int __XEOS_Lib_C99_Math_isnormal_d( double x );
 int __XEOS_Lib_C99_Math_isnormal_d( double x )

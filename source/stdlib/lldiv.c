@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdlib.h>
+#include <c99/stdlib.h>
 
 lldiv_t lldiv( long long int numer, long long int denom )
 {

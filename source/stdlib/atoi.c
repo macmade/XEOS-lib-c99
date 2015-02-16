@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#include <stdlib.h>
-#include <ctype.h>
+#include <c99/stdlib.h>
+#include <c99/ctype.h>
 
 int atoi( const char * nptr )
 {

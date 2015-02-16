@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdio.h>
+#include <c99/stdio.h>
 
 int vsnprintf( char * restrict s, size_t n, const char * restrict format, va_list arg )
 {

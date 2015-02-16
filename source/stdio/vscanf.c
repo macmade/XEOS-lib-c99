@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdio.h>
+#include <c99/stdio.h>
 
 int vscanf( const char * restrict format, va_list arg )
 {

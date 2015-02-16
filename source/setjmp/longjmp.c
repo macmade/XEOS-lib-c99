@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <setjmp.h>
+#include <c99/setjmp.h>
 
 void longjmp( jmp_buf env, int val )
 {

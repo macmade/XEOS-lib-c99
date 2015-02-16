@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdio.h>
+#include <c99/stdio.h>
 
 char * gets( char * s )
 {

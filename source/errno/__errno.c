@@ -61,6 +61,6 @@
 
 /* $Id$ */
 
-#include <errno.h>
+#include <c99/errno.h>
 
 int errno = 0;

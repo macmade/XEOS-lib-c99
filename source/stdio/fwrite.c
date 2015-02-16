@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdio.h>
+#include <c99/stdio.h>
 
 size_t fwrite( const void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream )
 {

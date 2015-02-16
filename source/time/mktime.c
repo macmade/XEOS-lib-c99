@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#include <time.h>
-#include <stdint.h>
+#include <c99/time.h>
+#include <c99/stdint.h>
 
 static time_t __yearDays[ 12 ] = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 };
 

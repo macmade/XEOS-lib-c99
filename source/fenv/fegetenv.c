@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <fenv.h>
+#include <c99/fenv.h>
 
 int fegetenv( fenv_t * envp )
 {

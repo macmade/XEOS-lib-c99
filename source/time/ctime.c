@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <time.h>
+#include <c99/time.h>
 
 char * ctime( const time_t * timer )
 {

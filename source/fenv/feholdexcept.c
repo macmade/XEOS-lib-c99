@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <fenv.h>
+#include <c99/fenv.h>
 
 int feholdexcept( fenv_t * envp )
 {

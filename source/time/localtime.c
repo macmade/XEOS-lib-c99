@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <time.h>
+#include <c99/time.h>
 
 struct tm * localtime( const time_t * timer )
 {

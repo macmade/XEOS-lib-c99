@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <string.h>
+#include <c99/string.h>
 
 char * strpbrk( const char * s1, const char * s2 )
 {

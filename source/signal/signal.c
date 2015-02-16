@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#include <signal.h>
-#include <stdlib.h>
+#include <c99/signal.h>
+#include <c99/stdlib.h>
 
 void ( * signal( int sig, void ( * func )( int ) ) )( int )
 {

@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdio.h>
+#include <c99/stdio.h>
 
 int fputs( const char * restrict s, FILE * restrict stream )
 {

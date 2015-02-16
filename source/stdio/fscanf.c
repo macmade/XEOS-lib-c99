@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdio.h>
+#include <c99/stdio.h>
 
 int fscanf( FILE * restrict stream, const char * restrict format, ... )
 {

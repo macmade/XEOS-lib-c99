@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <signal.h>
+#include <c99/signal.h>
 
 int raise( int sig )
 {

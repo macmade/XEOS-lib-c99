@@ -61,7 +61,7 @@
 
 /* $Id$ */
 
-#include <stdio.h>
+#include <c99/stdio.h>
 
 int sscanf( const char * restrict s, const char * restrict format, ... )
 {
