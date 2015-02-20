@@ -78,7 +78,16 @@ char * strpbrk( const char * s1, const char * s2 )
         {
             if( *( p1 ) == *( p2 ) )
             {
+                #ifdef __clang__
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Wcast-qual"
+                #endif
+                
                 return ( char * )p1;
+                
+                #ifdef __clang__
+                #pragma clang diagnostic pop
+                #endif
             }
             
             p2++;

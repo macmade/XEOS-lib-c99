@@ -71,7 +71,16 @@ char * strstr( const char * s1, const char * s2 )
     
     if( s2[ 0 ] == 0 )
     {
+        #ifdef __clang__
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wcast-qual"
+        #endif
+        
         return ( char * )s1;
+        
+        #ifdef __clang__
+        #pragma clang diagnostic pop
+        #endif
     }
     
     p1 = s1;
@@ -92,7 +101,16 @@ char * strstr( const char * s1, const char * s2 )
             
             if( *( p3 ) == 0 )
             {
+                #ifdef __clang__
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Wcast-qual"
+                #endif
+                
                 return ( char * )p1;
+                
+                #ifdef __clang__
+                #pragma clang diagnostic pop
+                #endif
             }
         }
         

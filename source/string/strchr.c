@@ -69,7 +69,16 @@ char * strchr( const char * s, int c )
     {
         if( *( s ) == ( char )c )
         {
+            #ifdef __clang__
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wcast-qual"
+            #endif
+            
             return ( char * )s;
+            
+            #ifdef __clang__
+            #pragma clang diagnostic pop
+            #endif
         }
         
         s++;
@@ -77,7 +86,16 @@ char * strchr( const char * s, int c )
     
     if( c == 0 )
     {
+        #ifdef __clang__
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wcast-qual"
+        #endif
+        
         return ( char * )s;
+        
+        #ifdef __clang__
+        #pragma clang diagnostic pop
+        #endif
     }
     
     return NULL;
