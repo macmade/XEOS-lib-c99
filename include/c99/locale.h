@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __XEOS_LIB_C99_LOCALE_H__
-#define __XEOS_LIB_C99_LOCALE_H__
+#ifndef XEOS_LIB_C99_LOCALE_H
+#define XEOS_LIB_C99_LOCALE_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -85,4 +85,4 @@ struct lconv * localeconv( void );
 }
 #endif
 
-#endif /* __XEOS_LIB_C99_LOCALE_H__ */
+#endif /* XEOS_LIB_C99_LOCALE_H */

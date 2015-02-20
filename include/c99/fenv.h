@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __XEOS_LIB_C99_FENV_H__
-#define __XEOS_LIB_C99_FENV_H__
+#ifndef XEOS_LIB_C99_FENV_H
+#define XEOS_LIB_C99_FENV_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -104,4 +104,4 @@ int feupdateenv( const fenv_t * envp );
 }
 #endif
 
-#endif /* __XEOS_LIB_C99_FENV_H__ */
+#endif /* XEOS_LIB_C99_FENV_H */

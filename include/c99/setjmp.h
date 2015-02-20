@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __XEOS_LIB_C99_SETJMP_H__
-#define __XEOS_LIB_C99_SETJMP_H__
+#ifndef XEOS_LIB_C99_SETJMP_H
+#define XEOS_LIB_C99_SETJMP_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -77,4 +77,4 @@ void    longjmp( jmp_buf env, int val );
 }
 #endif
 
-#endif /* __XEOS_LIB_C99_SETJMP_H__ */
+#endif /* XEOS_LIB_C99_SETJMP_H */

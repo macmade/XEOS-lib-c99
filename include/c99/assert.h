@@ -73,8 +73,8 @@
     
 #endif
 
-#ifndef __XEOS_LIB_C99_ASSERT_H__
-#define __XEOS_LIB_C99_ASSERT_H__
+#ifndef XEOS_LIB_C99_ASSERT_H
+#define XEOS_LIB_C99_ASSERT_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -86,4 +86,4 @@ extern void __XEOS_Lib_C99_AssertFail( char * expression, char * file, int line,
 }
 #endif
 
-#endif /* __XEOS_LIB_C99_ASSERT_H__ */
+#endif /* XEOS_LIB_C99_ASSERT_H */

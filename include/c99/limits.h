@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __XEOS_LIB_C99_LIMITS_H__
-#define __XEOS_LIB_C99_LIMITS_H__
+#ifndef XEOS_LIB_C99_LIMITS_H
+#define XEOS_LIB_C99_LIMITS_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -121,4 +121,4 @@ extern "C" {
 }
 #endif
 
-#endif /* __XEOS_LIB_C99_LIMITS_H__ */
+#endif /* XEOS_LIB_C99_LIMITS_H */

@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __XEOS_LIB_C99_STDBOOL_H__
-#define __XEOS_LIB_C99_STDBOOL_H__
+#ifndef XEOS_LIB_C99_STDBOOL_H
+#define XEOS_LIB_C99_STDBOOL_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -74,7 +74,17 @@ extern "C" {
     
 #endif
 
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-id-macro"
+#endif
+
 #define __bool_true_false_are_defined   1
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+
 #define true                            1
 #define false                           0
 #define bool                            _Bool
@@ -83,4 +93,4 @@ extern "C" {
 }
 #endif
 
-#endif /* __XEOS_LIB_C99_STDBOOL_H__ */
+#endif /* XEOS_LIB_C99_STDBOOL_H */

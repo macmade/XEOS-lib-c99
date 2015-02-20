@@ -61,8 +61,8 @@
 
 /* $Id$ */
 
-#ifndef __XEOS_LIB_C99_STDIO_H__
-#define __XEOS_LIB_C99_STDIO_H__
+#ifndef XEOS_LIB_C99_STDIO_H
+#define XEOS_LIB_C99_STDIO_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -74,9 +74,18 @@ extern "C" {
 #include <system/types/fpos_t.h>
 #include <system/types/file.h>
 
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-id-macro"
+#endif
+
 #define _IOFBF                      0
 #define _IOLBF                      1
 #define _IONBF                      2
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 
 #define BUFSIZ                      1024
 #define EOF                         ( -1 )
@@ -151,4 +160,4 @@ void        perror( const char * s );
 }
 #endif
 
-#endif /* __XEOS_LIB_C99_STDIO_H__ */
+#endif /* XEOS_LIB_C99_STDIO_H */
