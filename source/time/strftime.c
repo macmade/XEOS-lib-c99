@@ -59,6 +59,11 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
+/*!
+ * @author          Jean-David Gadina
+ * @copyright       (c) 2010-2015, Jean-David Gadina - www.xs-labs.com
+ */
+
 #include <c99/time.h>
 
 size_t strftime( char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr )
