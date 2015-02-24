@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/stdio.h>
 
 int fputs( const char * restrict s, FILE * restrict stream )

@@ -59,8 +59,6 @@
 ; OF THE POSSIBILITY OF SUCH DAMAGE.
 ;-------------------------------------------------------------------------------
 
-; $Id$
-
 ; We are in 64 bits mode
 BITS    64
 

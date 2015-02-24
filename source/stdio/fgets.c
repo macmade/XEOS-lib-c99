@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/stdio.h>
 
 char * fgets( char * restrict s, int n, FILE * restrict stream )

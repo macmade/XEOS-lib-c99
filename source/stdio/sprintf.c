@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/stdio.h>
 
 int sprintf( char * restrict s, const char * restrict format, ... )

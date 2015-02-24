@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/stdio.h>
 
 int fprintf( FILE * restrict stream, const char * restrict format, ... )

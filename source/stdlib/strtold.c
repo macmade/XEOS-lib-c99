@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/stdlib.h>
 
 long double strtold( const char * restrict nptr, char ** restrict endptr )

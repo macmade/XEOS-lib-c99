@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/stdlib.h>
 
 void qsort( void * base, size_t nmemb, size_t size, int ( * compar )( const void *, const void * ) )

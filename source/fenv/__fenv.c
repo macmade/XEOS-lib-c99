@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/fenv.h>
 
 const fenv_t __XEOS_Lib_C99_FEDefaultEnv;

@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/stdio.h>
 
 size_t fread( void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream )

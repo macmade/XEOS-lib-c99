@@ -59,8 +59,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  ******************************************************************************/
 
-/* $Id$ */
-
 #include <c99/string.h>
 
 size_t strxfrm( char * restrict s1, const char * restrict s2, size_t n )
