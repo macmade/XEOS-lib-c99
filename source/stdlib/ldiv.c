@@ -70,6 +70,9 @@ ldiv_t ldiv( long int numer, long int denom )
 {
     ldiv_t div;
     
+    div.quot = 0;
+    div.rem  = 0;
+    
     ( void )numer;
     ( void )denom;
     
